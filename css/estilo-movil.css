@@ -22,7 +22,7 @@
 
 		/* Colors */
 		color: black;
-		background: grey;
+		background: lightgrey;
 
 		/* Box */
 		margin: .2vw;
@@ -47,10 +47,6 @@
 		text-align: center;
 
 		margin: 2%;
-	}
-	aside a {
-		background: grey;
-		color: #99FFFF;
 	}
 
 	main {
