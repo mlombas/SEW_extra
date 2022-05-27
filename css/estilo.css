@@ -72,7 +72,7 @@
 
 		margin: 1vw;
 	}
-	main h1, main h2, main h6 {
+	main h1, main h2, main h1 + p {
 		text-align: center;
 	}
 	main h1 {
@@ -145,7 +145,7 @@
 
 		margin: 1vw;
 	}
-	main h1, main h2, main h6 {
+	main h1, main h2, main h1 + p {
 		text-align: center;
 	}
 	main h1 {
