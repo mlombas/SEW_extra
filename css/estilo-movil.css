@@ -8,6 +8,7 @@
 		justify-content: center;
 		align-items: stretch;
 
+		color: black;
 		background: lightgrey;
 	}
 
@@ -20,19 +21,18 @@
 		align-items: center;
 
 		/* Colors */
+		color: black;
 		background: grey;
 
 		/* Box */
 		margin: .2vw;
 		padding: .6vw;
 	}
-
 	aside > h2 {
 		order: -100;
 
 		margin: 0;
 	}
-
 	aside ul {
 		display: flex;
 		flex-direction: row;
@@ -43,14 +43,18 @@
 
 		padding: .5vw;
 	}
-
 	aside ul > li {
 		text-align: center;
 
 		margin: 2%;
 	}
+	aside a {
+		background: grey;
+		color: #99FFFF;
+	}
 
 	main {
+		color: black;
 		background: white;
 
 		margin: 1vw;
