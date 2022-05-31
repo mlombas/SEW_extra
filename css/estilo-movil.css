@@ -7,66 +7,13 @@
 		flex-wrap: nowrap;
 		justify-content: center;
 		align-items: stretch;
-
-		color: black;
-		background: lightgrey;
 	}
 
-	aside {
-		/* Flex */
-		display: flex;
-		flex-direction: column;
-		flex-wrap: nowrap;
+	body > aside {
 		justify-content: center;
 		align-items: center;
-
-		/* Colors */
-		color: black;
-		background: lightgrey;
-
-		/* Box */
-		margin: .2vw;
-		padding: .6vw;
 	}
-	aside > h2 {
-		order: -100;
-
-		margin: 0;
-	}
-	aside ul {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		justify-content: space-evenly;
-
-		list-style-type: none;
-
-		padding: .5vw;
-	}
-	aside ul > li {
-		text-align: center;
-
+	body > aside ul > li {
 		margin: 2%;
-	}
-
-	main {
-		color: black;
-		background: white;
-
-		margin: 1vw;
-	}
-	main h1, main h2, main h1 + p {
-		text-align: center;
-	}
-	main h1 {
-		font-size: 3em;
-	}
-	main h2 {
-		font-size: 1.5em;
-		text-decoration: underline;
-	}
-	main section {
-		margin-left: 10vw;
-		margin-right: 10vw;
 	}
 }

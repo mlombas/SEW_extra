@@ -1,0 +1,69 @@
+body {
+	color: black;
+	background: lightgrey;
+}
+
+body > aside {
+	/* Flex */
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+
+	/* Colors */
+	color: black;
+	background: lightgrey;
+
+	/* Box */
+	margin: .2vw;
+	padding: .6vw;
+}
+body > aside > h2 {
+	order: -100;
+	margin: 0;
+}
+
+body > aside nav ul {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+
+	list-style-type: none;
+
+	padding: .5vw;
+}
+body > aside nav ul > li {
+	margin: 2%;
+}
+
+address ul > li {
+	margin: 0;
+}
+
+address a {
+	pointer-events: none;
+	cursor: unset;
+	text-decoration: none;
+	color: black;
+	background: white;
+}
+
+main {
+	color: black;
+	background: white;
+
+	margin: 1vw;
+}
+main h1, main h2, main h1 + p {
+	text-align: center;
+}
+main h1 {
+	font-size: 3em;
+}
+main h2 {
+	font-size: 1.5em;
+	text-decoration: underline;
+}
+main section {
+	margin-left: 10vw;
+	margin-right: 10vw;
+}

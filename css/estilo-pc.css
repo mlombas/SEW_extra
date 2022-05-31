@@ -6,14 +6,11 @@
 
 		grid-template-columns: 2fr 9fr;
 		grid-template-rows: 1fr auto;
-
-		color: black;
-		background: lightgrey;
 	}
 	body > aside {
 		grid-area: 1 / 1 / 2 / 1;
 
-		position: fixed;
+		/*position: fixed;*/
 	}
 	body > main {
 		grid-area: 1 / 2 / 1 / 2;
@@ -22,60 +19,14 @@
 		grid-area: 2 / 2 / 2 / 2;
 	}
 
-	aside {
-		/* Flex */
-		display: flex;
-		flex-direction: column;
-		flex-wrap: nowrap;
+	body > aside {
 		justify-content: flex-start;
 		align-items: stretch;
-
-		/* Colors */
-		color: black;
-		background: lightgrey;
-
-		/* Box */
-		margin: .2vw;
-		padding: .6vw;
 	}
-	aside > h2 {
-		order: -100;
-		align-self: flex-start;
-
-		margin: 0;
-	}
-	aside ul {
-		display: flex;
+	body > aside nav ul {
 		flex-direction: column;
-		flex-wrap: nowrap;
-		justify-content: space-evenly;
-
-		list-style-type: none;
-
-		padding: .5vw;
 	}
-	aside ul > li {
-		margin: 2%;
-	}
-
-	main {
-		color: black;
-		background: white;
-
-		margin: 1vw;
-	}
-	main h1, main h2, main h1 + p {
-		text-align: center;
-	}
-	main h1 {
-		font-size: 3em;
-	}
-	main h2 {
-		font-size: 1.5em;
-		text-decoration: underline;
-	}
-	main section {
-		margin-left: 10vw;
-		margin-right: 10vw;
+	body > aside > h2 {
+		align-self: flex-start;
 	}
 }
