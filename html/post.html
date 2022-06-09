@@ -23,11 +23,60 @@
 		</aside>
 		<main>
 			<h2>Compartir Fotografía</h2>
-			<form
-				method="POST"
-				action="/html/add.php"
-			>
-			</form>
+			<section>
+				<h3>Introducir datos manualmente</h3>
+				<form
+					method="POST"
+					enctype = "multipart/form-data"
+					action="/html/add.php"
+				>
+					<fieldset>
+						<legend>Imagen</legend>
+						<label for="name">Nombre: </label>
+						<input id="name" type="text" name="name" required/>
+						<label for="image">Imagen: </label>
+						<input id="image" type="file" accept=".jpg,.png"
+							name="image" required/>
+						<label for="description">Descripción: </label>
+						<textarea id="description" name="description" required>
+						</textarea>
+						<label for="date">Fecha: </label>
+						<input id="date" type="date" name="date" required/>
+						<label for="license">Licencia: </label>
+						<input id="license" type="text" name="license"/>
+					</fieldset>
+					<fieldset>
+						<legend>Lugar</legend>
+						<label for="coords">Coordenadas: </label>
+						<input id="coords" type="text" name="coords" required/>
+						<label for="region">Región (Nombre o ID): </label>
+						<input id="region" type="text" name="region"/>
+						<p>
+						No sabes cuál es el ID de la región? puedes
+						consultarlo <a href="../html/region_list.php">aquí</a>
+						</p>
+					</fieldset>
+					<fieldset>
+						<legend>Autor</legend>
+						<label for="author_name">Nombre: </label>
+						<input id="author_name" type="text" name="author_name" 
+							required
+						/>
+						<label for="author_email">Email: </label>
+						<input id="author_email" type="email" 
+							name="author_email"
+						/>
+						<label for="author_phone">Número de teléfono: </label>
+						<input id="author_phone" type="tel" name="author_phone"/>
+						<label for="author_address">Dirección: </label>
+						<input id="author_address" type="text" 
+							name="author_address"
+						/>
+					</fieldset>
+					<button type="submit">Enviar</button>
+					<button type="reset">Limpiar</button>
+				</form>
+			</section>
 		</main>
 		<footer>
 			<h3>Información adicional</h3>

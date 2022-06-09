@@ -1,0 +1,29 @@
+<!ELEMENT imagen (
+	fotografia, descripcion, lugar,
+	fecha, posicion?, autor?, licencia?
+)>
+
+<!ELEMENT fotografia (#PCDATA)>
+
+<!ELEMENT descripcion (#PCDATA)>
+
+<!ELEMENT lugar (coordenadas, region?)>
+<!ELEMENT coordenadas (#PCDATA)>
+<!ELEMENT region ((nombre | id), region?)>
+
+<!ELEMENT fecha (timestamp | iso)>
+<!ELEMENT timestamp (#PCDATA)>
+<!ELEMENT iso (#PCDATA)>
+
+<!ELEMENT posicion (#PCDATA)>
+<!ATTLIST posicion direccion CDATA #REQUIRED>
+
+<!ELEMENT autor (nombre?, email?, telefono?, direccion?)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT telefono (#PCDATA)>
+<!ELEMENT direccion (#PCDATA)>
+
+<!ELEMENT licencia (#PCDATA)>
+
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT id (#PCDATA)>

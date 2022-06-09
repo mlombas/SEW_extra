@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE imagen SYSTEM "imagen.dtd">
+<imagen>
+	<fotografia>
+		https://i.stack.imgur.com/2Sb2P.png
+	</fotografia>
+	<descripcion>
+		Ejemplo de codigo php
+	</descripcion>
+	<lugar>
+		<coordenadas>30.234 32.234</coordenadas>
+		<region>
+			<nombre>España</nombre>
+			<region>
+				<id>2</id>
+			</region>
+		</region>
+	</lugar>
+	<fecha>
+		<timestamp>1654788132</timestamp>
+	</fecha>
+	<posicion direccion="10 10 10">
+		En frente del ordenador
+	</posicion>
+	<autor>
+		<nombre>Omar montes</nombre>
+		<email>donomar@gmail.com</email>
+		<telefono>420 69 69 69</telefono>
+		<direccion>Puerto rico</direccion>
+	</autor>
+	<licencia>MIT</licencia>
+</imagen>

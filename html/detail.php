@@ -16,7 +16,7 @@
 include "../php/bd_utils.php";
 
 function insertRegion($db, $region) {
-	if($region->getSuperregionId() != "") {
+	if($region->getSuperregionId() != -1) {
 		insertRegion($db, $db->region()->superregionOfRegion($region));
 		echo " → ";
 	}
@@ -31,7 +31,8 @@ $photo_id = $_GET["id"];
 $photo = $db->photo()->byId($photo_id);
 $authors = $db->author()->ofPhoto($photo);
 $place = $db->place()->ofPhoto($photo);
-$region = $db->region()->ofPlace($place);
+if($place->getRegionId() !== 0) 
+	$region = $db->region()->ofPlace($place);
 ?>
 
 		<aside>

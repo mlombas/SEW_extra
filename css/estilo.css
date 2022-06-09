@@ -67,3 +67,7 @@ main section {
 	margin-left: 10vw;
 	margin-right: 10vw;
 }
+
+fieldset > p {
+	font-size: .65em;
+}

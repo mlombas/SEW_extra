@@ -38,29 +38,22 @@ $db = new Database();
 
 $photos = null;
 if($_GET) {
-	if(isset($_GET["author"]) && isset($_GET["region"]))
-		$photos = $db->photo()->allInRegionOfAuthor(
-			ascending: $_GET["order"] == "true",
-			name: isset($_GET["name"]) ? $_GET["name"] : "",
-			region: $db->region()->byId($_GET["region"]),
-			author_name: $_GET["author"]
-		);
-	else if(isset($_GET["author"]))
-		$photos = $db->photo()->allOfAuthor(
-			ascending: $_GET["order"] == "true",
-			name: isset($_GET["name"]) ? $_GET["name"] : "",
-			author_name: $_GET["author"]
-		);
-	else if(isset($_GET["region"]))
+	if(isset($_GET["region"]))
 		$photos = $db->photo()->allInRegion(
-			ascending: $_GET["order"] == "true",
+			ascending: isset($_GET["order"]) ? 
+				$_GET["order"] === "true" :
+				true,
 			name: isset($_GET["name"]) ? $_GET["name"] : "",
-			region: $db->region()->byId($_GET["region"])
+			author_name: isset($_GET["author"]) ? $_GET["author"] : "",
+			region: $db->region()->byId((int) $_GET["region"])
 		);
 	else
 		$photos = $db->photo()->all(
-			ascending: $_GET["order"] == "true",
-			name: isset($_GET["name"]) ? $_GET["name"] : ""
+			ascending: isset($_GET["order"]) ? 
+				$_GET["order"] === "true" :
+				true,
+			name: isset($_GET["name"]) ? $_GET["name"] : "",
+			author_name: isset($_GET["author"]) ? $_GET["author"] : "",
 		);
 } else {
 	$photos = $db->photo()->all();
@@ -87,17 +80,26 @@ $regions = $db->region()->all();
 			>
 				<p>Nombre: <label> 
 					<input type="text" name="name" 
-					value="<?php echo $_GET["name"] ?>"</input>
+					value=
+<?php if(isset($_GET["name"])) echo "\"" . $_GET["name"] . "\""; ?>
+					>
+					</input>
 				</label></p>
 				<p>Autor: <label> 
 					<input type="text" name="author" 
-					value="<?php echo $_GET["author"] ?>"</input>
+					value=
+<?php if(isset($_GET["author"])) echo "\"" . $_GET["author"] . "\""; ?>
+					>
+					</input>
 				</label></p>
 				<p>Region: <label>
 					<select name="region">
 <?php
 foreach($regions as $region) {
-	$selected = $region->getId() === (int) $_GET["region"] ?
+	$selected = (
+			isset($_GET["region"]) &&
+			$region->getId() === (int) $_GET["region"] 
+		) ?
 		"selected" :
 		"";
 	echo "<option value=\"" . $region->getId() . "\" " .
@@ -114,7 +116,10 @@ foreach($regions as $region) {
 							type="radio" 
 							name="order" 
 							value="true"
-						<?php if($_GET["order"] === "true") echo "checked" ?>
+<?php 
+if(isset($_GET["order"]) && $_GET["order"] === "true")
+	echo "checked" 
+?>
 						>Ascendiente</input>
 					</label></p>
 					<p><label> 
@@ -122,7 +127,10 @@ foreach($regions as $region) {
 							type="radio" 
 							name="order" 
 							value="false"
-						<?php if($_GET["order"] === "false") echo "checked" ?>
+<?php 
+if(isset($_GET["order"]) && $_GET["order"] !== "true")
+	echo "checked" 
+?>
 						>Descendiente</input>
 					</label></p>
 				</fieldset>

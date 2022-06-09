@@ -71,7 +71,7 @@ class Place
 	private $coordinates;
 	private $region_id;
 
-	function __construct($id, $coordinates, $region_id) {
+	function __construct($id, $coordinates, $region_id = null) {
 		$this->id = $id;
 		$this->coordinates = $coordinates;
 		$this->region_id = $region_id;
