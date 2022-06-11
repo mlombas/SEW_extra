@@ -199,7 +199,7 @@ let page = new PageManager(
 			</nav>
 		</aside>
 		<main>
-		<h2>Detalle de la imagen</h2>
+		<h1>Detalle de la imagen</h1>
 		<article>
 			<h3>"<?php echo $maker->getName(); ?>"</h3>
 			<picture>

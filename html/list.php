@@ -152,7 +152,7 @@ $(document).ready(() => loc.filter());
 			</nav>
 		</aside>
 		<main>
-		<h2>Listado de Imágenes</h2>
+		<h1>Listado de Imágenes</h1>
 		<section>
 			<h3>Opciones de búsqueda</h3>
 			<form

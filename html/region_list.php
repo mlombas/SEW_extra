@@ -66,7 +66,7 @@ class RegionMaker
 			</nav>
 		</aside>
 		<main>
-			<h2>Listado de regiones</h2>
+			<h1>Listado de regiones</h1>
 <?php (new RegionMaker())->makeAllDbRegions(); ?>
 		</main>
 		<footer>
