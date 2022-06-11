@@ -30,7 +30,7 @@
 		<main>
 			<h1>Compartir Fotografía</h1>
 			<section>
-				<h3>Introducir datos manualmente</h3>
+				<h2>Introducir datos manualmente</h2>
 				<form
 					method="POST"
 					enctype="multipart/form-data"
@@ -59,7 +59,8 @@
 						<input id="region" type="text" name="region"/>
 						<p>
 						No sabes cuál es el ID de la región? puedes
-						consultarlo <a href="../html/region_list.php">aquí</a>
+						consultarlo en la lista de regiones, en el
+						menú de navegación.
 						</p>
 					</fieldset>
 					<fieldset>
@@ -84,7 +85,7 @@
 				</form>
 			</section>
 			<section>
-				<h3>Subir documento XML</h3>
+				<h2>Subir documento XML</h2>
 				<form
 					method="POST"
 					enctype="multipart/form-data"
@@ -93,7 +94,8 @@
 					<label for="document">Documento: </label>
 					<input id="document" type="file" accept=".xml"
 						name="document" required/>
-					<input type="file" accept=".jpg,.png"
+					<label for="image">Imagen: </label>
+					<input id="image" type="file" accept=".jpg,.png"
 						name="image" required/>
 					<button type="submit">Enviar</button>
 					<button type="reset">Limpiar</button>

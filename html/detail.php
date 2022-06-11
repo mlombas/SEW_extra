@@ -109,11 +109,11 @@ class PhotoDetailMaker
 
 		echo "<section>";
 
-		echo "<h4>Dirección de la cámara</h4>";
+		echo "<h3>Dirección de la cámara</h3>";
 
 		echo "<p>Posición exacta: " . $this->direction->getPosition() .
 			"</p>";
-		echo "<h6>Indicaciones de orientación:</h6>";
+		echo "<h3>Indicaciones de orientación:</h3>";
 		echo "<p>Cargando Orientación...</p>";
 
 		echo "</section>";
@@ -201,7 +201,7 @@ let page = new PageManager(
 		<main>
 		<h1>Detalle de la imagen</h1>
 		<article>
-			<h3>"<?php echo $maker->getName(); ?>"</h3>
+			<h2>"<?php echo $maker->getName(); ?>"</h2>
 			<picture>
 				<img 
 					alt="<?php echo $maker->getName(); ?>" 
@@ -210,7 +210,7 @@ let page = new PageManager(
 			</picture>
 			<p><?php echo $maker->getDescription() ?></p>
 			<section>
-				<h4>Lugar</h4>
+				<h3>Lugar</h3>
 				<p>Coordenadas: <?php echo $maker->getCoordinates(); ?></p>
 				<p>Cargando Movimiento...</p>
 				<p>Región: <?php echo $maker->getRegionString(); ?></p>
@@ -218,14 +218,14 @@ let page = new PageManager(
 			<?php $maker->printDirection(); ?>
 		</article>
 		<aside>
-			<h3>Información adicional</h3>
+			<h2>Información adicional</h2>
 				<p>Licencia: <?php echo $maker->getLicense() ?></p>
 			<section>
-				<h4>Fecha</h4>
+				<h3>Fecha</h3>
 				<p>Cargando Periodo...</p>
-				<h5>Donde la imágen fué tomada:</h5>
+				<h3>Donde la imágen fué tomada:</h3>
 				<p><?php echo $maker->getDateString(); ?></p>
-				<h5>Conversión a hora local:</h5>
+				<h3>Conversión a hora local:</h3>
 					<p>Cargando Hora...</p>
 			</section>
 			<section>

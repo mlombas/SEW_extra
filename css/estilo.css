@@ -80,7 +80,7 @@ main section {
 }
 
 fieldset > p {
-	font-size: .65em;
+	font-size: .85em;
 }
 
 main h1, main h2, main h3 {
@@ -91,16 +91,16 @@ footer h3 {
 	text-align: left;
 }
 
-h3 {
+h2 {
 	text-align: center;
 }
-h3 ~ ul > li {
+h2 ~ ul > li {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: space-between;
 }
-h3 ~ ul > li p {
+h2 ~ ul > li p {
 	border: .02em solid black;
 	padding: .1em .5em;
 }
@@ -114,11 +114,11 @@ section > section {
 
 	margin: .5em 2%;
 }
-h6 ~ section {
+h3 ~ section {
 	padding: .2em 1em;
 	border: .1em dashed black;
 }
-h6 {
+h3 {
 	margin: .3em;
 }
 
@@ -198,10 +198,10 @@ main > article > section {
 	padding: .1vw 2vw;
 	margin: .2vw 0;
 }
-main > article > section h4 { 
+main > article > section h3 { 
 	font-size: 1.5em;
 }
-main > article > section h6 { 
+main > article > section h4 { 
 	font-size: 1em;
 }
 
@@ -231,7 +231,7 @@ main > aside > section {
 	padding: .1vw 2vw;
 	margin: .2vw 0;
 }
-main > aside > section h4 { 
+main > aside > section h3 { 
 	font-size: 1.5em;
 }
 main > aside h5 {
