@@ -36,46 +36,46 @@ $(document).ready(() => loc.filter());
 			</nav>
 		</aside>
 		<main>
-		<h2>Listado de Imágenes</h2>
-		<section>
-			<h3>Opciones de búsqueda</h3>
-			<form method="GET" action="/html/list.php">
-				<fieldset>
-					<legend>Datos</legend>
-					<p>Nombre: <label> 
-						<input type="text" name="name" value="">
-						
-					</label></p>
-					<p>Autor: <label> 
-						<input type="text" name="author" value="">
-						
-					</label></p>
-				</fieldset>
-				<fieldset>
-					<legend>Lugar</legend>
-					<p>Region: <label>
-						<select name="region">
-<option value="1">Mundo</option><option value="2">Europa</option><option value="3">España</option><option value="4">Francia *vomita*</option>						</select>
-					</label></p>
-					<p>Cercanos a tí <label>
-						<input type="checkbox" name="close">
-					</label></p>
-				</fieldset>
-				<fieldset>
-					<legend>Orden</legend>
-					<p><label> 
-						<input type="radio" name="order" value="true">Ascendiente
-					</label></p>
-					<p><label> 
-						<input type="radio" name="order" value="false">Descendiente
-					</label></p>
-				</fieldset>
-				<p><label> <button type="submit">Buscar</button></label></p>
-			</form>
-		</section>
+			<h1>Listado de Imágenes</h1>
 			<section>
-				<h4>Resultados</h4>
-<section><h6>Cute cat</h6><picture><img alt="A cute cat I found" src="/imagenes/cute_cat.jpg"></picture><p><a href="/html/detail.php?id=1">Ir</a></p></section><section><h6>Cute otter</h6><picture><img alt="A couple of otters" src="/imagenes/cute_otter.jpg"></picture><p><a href="/html/detail.php?id=2">Ir</a></p></section><section><h6>House</h6><picture><img alt="A house" src="/imagenes/house.jpg"></picture><p><a href="/html/detail.php?id=3">Ir</a></p></section>			</section>
+				<h2>Opciones de búsqueda</h2>
+				<form method="GET" action="/html/list.php">
+					<fieldset>
+						<legend>Datos</legend>
+						<p>Nombre: <label> 
+							<input type="text" name="name" value="">
+							
+						</label></p>
+						<p>Autor: <label> 
+							<input type="text" name="author" value="">
+							
+						</label></p>
+					</fieldset>
+					<fieldset>
+						<legend>Lugar</legend>
+						<p>Region: <label>
+							<select name="region">
+	<option value="1">Mundo</option><option value="2">Europa</option><option value="3">España</option><option value="4">Francia *vomita*</option>							</select>
+						</label></p>
+						<p>Cercanos a tí <label>
+							<input type="checkbox" name="close">
+						</label></p>
+					</fieldset>
+					<fieldset>
+						<legend>Orden</legend>
+						<p><label> 
+							<input type="radio" name="order" value="true">Ascendiente
+						</label></p>
+						<p><label> 
+							<input type="radio" name="order" value="false">Descendiente
+						</label></p>
+					</fieldset>
+					<p><label> <button type="submit">Buscar</button></label></p>
+				</form>
+			</section>
+			<section>
+				<h2>Resultados</h2>
+	<section><h3>Cute cat</h3><picture><img alt="A cute cat I found" src="/imagenes/cute_cat.jpg"></picture><p><a href="/html/detail.php?id=1">Ir</a></p></section><section><h3>Cute otter</h3><picture><img alt="A couple of otters" src="/imagenes/cute_otter.jpg"></picture><p><a href="/html/detail.php?id=2">Ir</a></p></section><section><h3>House</h3><picture><img alt="A house" src="/imagenes/house.jpg"></picture><p><a href="/html/detail.php?id=3">Ir</a></p></section>			</section>
 		</main>
 		<footer>
 			<h3>Información adicional</h3>
