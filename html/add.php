@@ -268,6 +268,7 @@ class Printer {
 			</nav>
 		</aside>
 		<main>
+			<h1>Subiendo Fotografía</h1>
 <?php (new Printer())->printAll(); ?>
 		</main>
 		<footer>
