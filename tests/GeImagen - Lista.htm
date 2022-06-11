@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="es"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8">
 		<meta name="application-name" content="geimagen">
 		<meta name="author" content="Mario Lombas - UO275901">
 
-		<link rel="preconnect" href="https://fonts.googleapis.com/">
-		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-		<link href="GeImagen%20-%20Lista_files/css2.css" rel="stylesheet">
-		<link rel="stylesheet" href="GeImagen%20-%20Lista_files/estilo.css">
-		<link rel="stylesheet" href="GeImagen%20-%20Lista_files/estilo-pc.css">
-		<link rel="stylesheet" href="GeImagen%20-%20Lista_files/estilo-movil.css">
-		<link rel="stylesheet" href="GeImagen%20-%20Lista_files/lista.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+		<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&amp;family=Public+Sans:wght@200&amp;display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="../css/estilo.css">
+		<link rel="stylesheet" href="../css/estilo-pc.css">
+		<link rel="stylesheet" href="../css/estilo-movil.css">
+		<link rel="stylesheet" href="../css/lista.css">
 
-<script src="GeImagen%20-%20Lista_files/jquery.js"></script>
-<script src="GeImagen%20-%20Lista_files/Util.js"></script>
-<script src="GeImagen%20-%20Lista_files/LocationFilter.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="../js/Util.js"></script>
+<script src="../js/LocationFilter.js"></script>
 <script>
 let loc = new LocationFilter();
 $(document).ready(() => loc.filter());
@@ -28,11 +27,11 @@ $(document).ready(() => loc.filter());
 			<h2>Navegación</h2>
 			<nav>
 				<ul>
-					<li><a href="http://localhost/html/index.html" accesskey="i" tabindex="1">Inicio</a></li>
-					<li><a href="http://localhost/html/explanation.html" accesskey="e" tabindex="2">Explicación</a> de la aplicación</li>
-					<li><a href="http://localhost/html/post.html" accesskey="c" tabindex="3">Compartir</a> una fotografía</li>
-					<li><a href="http://localhost/html/list.php" accesskey="l" tabindex="4">Lista</a> de fotografías de la aplicación</li>
-					<li><a href="http://localhost/html/region_list.php" accesskey="r" tabindex="5">Regiones</a> presentes en la aplicación</li>
+					<li><a href="../html/index.html">Inicio</a></li>
+					<li><a href="../html/explanation.html">Explicación</a> de la aplicación</li>
+					<li><a href="../html/post.html">Compartir</a> una fotografía</li>
+					<li><a href="../html/list.php">Lista</a> de fotografías de la aplicación</li>
+					<li><a href="../html/region_list.php">Regiones</a> presentes en la aplicación</li>
 				</ul>
 			</nav>
 		</aside>
@@ -44,11 +43,11 @@ $(document).ready(() => loc.filter());
 				<fieldset>
 					<legend>Datos</legend>
 					<p>Nombre: <label> 
-						<input type="text" name="name">
+						<input type="text" name="name" value="">
 						
 					</label></p>
 					<p>Autor: <label> 
-						<input type="text" name="author">
+						<input type="text" name="author" value="">
 						
 					</label></p>
 				</fieldset>
@@ -56,7 +55,7 @@ $(document).ready(() => loc.filter());
 					<legend>Lugar</legend>
 					<p>Region: <label>
 						<select name="region">
-<option value="1" selected="selected">Mundo</option><option value="2">Europa</option><option value="3">España</option><option value="4">Francia *vomita*</option>						</select>
+<option value="1">Mundo</option><option value="2">Europa</option><option value="3">España</option><option value="4">Francia *vomita*</option>						</select>
 					</label></p>
 					<p>Cercanos a tí <label>
 						<input type="checkbox" name="close">
@@ -76,7 +75,7 @@ $(document).ready(() => loc.filter());
 		</section>
 			<section>
 				<h4>Resultados</h4>
-<section><h6>Cute cat</h6><picture><img alt="A cute cat I found" src="GeImagen%20-%20Lista_files/cute_cat.jpg"></picture><p><a href="http://localhost/html/detail.php?id=1">Ir</a></p></section><section><h6>Cute otter</h6><picture><img alt="A couple of otters" src="GeImagen%20-%20Lista_files/cute_otter.jpg"></picture><p><a href="http://localhost/html/detail.php?id=2">Ir</a></p></section><section><h6>House</h6><picture><img alt="A house" src="GeImagen%20-%20Lista_files/house.jpg"></picture><p><a href="http://localhost/html/detail.php?id=3">Ir</a></p></section>			</section>
+<section><h6>Cute cat</h6><picture><img alt="A cute cat I found" src="/imagenes/cute_cat.jpg"></picture><p><a href="/html/detail.php?id=1">Ir</a></p></section><section><h6>Cute otter</h6><picture><img alt="A couple of otters" src="/imagenes/cute_otter.jpg"></picture><p><a href="/html/detail.php?id=2">Ir</a></p></section><section><h6>House</h6><picture><img alt="A house" src="/imagenes/house.jpg"></picture><p><a href="/html/detail.php?id=3">Ir</a></p></section>			</section>
 		</main>
 		<footer>
 			<h3>Información adicional</h3>

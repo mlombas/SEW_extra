@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="es"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8">
 		<meta name="application-name" content="geimagen">
 		<meta name="author" content="Mario Lombas - UO275901">
 
-		<link rel="preconnect" href="https://fonts.googleapis.com/">
-		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-		<link href="GeImagen%20-%20Detalle_files/css2.css" rel="stylesheet">
-		<link rel="stylesheet" href="GeImagen%20-%20Detalle_files/estilo.css">
-		<link rel="stylesheet" href="GeImagen%20-%20Detalle_files/estilo-pc.css">
-		<link rel="stylesheet" href="GeImagen%20-%20Detalle_files/estilo-movil.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+		<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&amp;family=Public+Sans:wght@200&amp;display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="../css/estilo.css">
+		<link rel="stylesheet" href="../css/estilo-pc.css">
+		<link rel="stylesheet" href="../css/estilo-movil.css">
 
 
-<script src="GeImagen%20-%20Detalle_files/jquery.js"></script>
-<script src="GeImagen%20-%20Detalle_files/Util.js"></script>
-<script src="GeImagen%20-%20Detalle_files/DateConversor.js"></script>
-<script src="GeImagen%20-%20Detalle_files/PositionUpdater.js"></script>
-<script src="GeImagen%20-%20Detalle_files/DirectionUpdater.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="../js/Util.js"></script>
+<script src="../js/DateConversor.js"></script>
+<script src="../js/PositionUpdater.js"></script>
+<script src="../js/DirectionUpdater.js"></script>
 <script>
 "use strict";
 class PageManager
@@ -58,11 +57,11 @@ let page = new PageManager(
 			<h2>Navegación</h2>
 			<nav>
 				<ul>
-					<li><a href="http://localhost/html/index.html" accesskey="i" tabindex="1">Inicio</a></li>
-					<li><a href="http://localhost/html/explanation.html" accesskey="e" tabindex="2">Explicación</a> de la aplicación</li>
-					<li><a href="http://localhost/html/post.html" accesskey="c" tabindex="3">Compartir</a> una fotografía</li>
-					<li><a href="http://localhost/html/list.php" accesskey="l" tabindex="4">Lista</a> de fotografías de la aplicación</li>
-					<li><a href="http://localhost/html/region_list.php" accesskey="r" tabindex="5">Regiones</a> presentes en la aplicación</li>
+					<li><a href="../html/index.html">Inicio</a></li>
+					<li><a href="../html/explanation.html">Explicación</a> de la aplicación</li>
+					<li><a href="../html/post.html">Compartir</a> una fotografía</li>
+					<li><a href="../html/list.php">Lista</a> de fotografías de la aplicación</li>
+					<li><a href="../html/region_list.php">Regiones</a> presentes en la aplicación</li>
 				</ul>
 			</nav>
 		</aside>
@@ -71,7 +70,7 @@ let page = new PageManager(
 		<article>
 			<h3>"Cute cat"</h3>
 			<picture>
-				<img alt="Cute cat" src="GeImagen%20-%20Detalle_files/cute_cat.jpg">
+				<img alt="Cute cat" src="/imagenes/cute_cat.jpg">
 			</picture>
 			<p>A cute cat I found</p>
 			<section>
@@ -80,7 +79,7 @@ let page = new PageManager(
 				<p>Dirección a seguir: Este →</p>
 				<p>Región: Mundo → Europa → España</p>
 			</section>
-			<section><h4>Dirección de la cámara</h4><p>Posición exacta: Mirando al gato</p><h6>Indicaciones de orientación:</h6><p>Tu dispositivo parece no disponer de orientación</p></section>		</article>
+			<section><h4>Dirección de la cámara</h4><p>Posición exacta: Mirando al gato</p><h6>Indicaciones de orientación:</h6><p>Cargando Orientación...</p></section>		</article>
 		<aside>
 			<h3>Información adicional</h3>
 				<p>Licencia: MIT</p>
