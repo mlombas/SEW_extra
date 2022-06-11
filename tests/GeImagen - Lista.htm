@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8">
+		<meta name="application-name" content="geimagen">
+		<meta name="author" content="Mario Lombas - UO275901">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com/">
+		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+		<link href="GeImagen%20-%20Lista_files/css2.css" rel="stylesheet">
+		<link rel="stylesheet" href="GeImagen%20-%20Lista_files/estilo.css">
+		<link rel="stylesheet" href="GeImagen%20-%20Lista_files/estilo-pc.css">
+		<link rel="stylesheet" href="GeImagen%20-%20Lista_files/estilo-movil.css">
+		<link rel="stylesheet" href="GeImagen%20-%20Lista_files/lista.css">
+
+<script src="GeImagen%20-%20Lista_files/jquery.js"></script>
+<script src="GeImagen%20-%20Lista_files/Util.js"></script>
+<script src="GeImagen%20-%20Lista_files/LocationFilter.js"></script>
+<script>
+let loc = new LocationFilter();
+$(document).ready(() => loc.filter());
+</script>
+
+		<title>GeImagen - Detalle</title>
+	</head>
+	<body class="vsc-initialized">
+		<aside>
+			<h2>Navegación</h2>
+			<nav>
+				<ul>
+					<li><a href="http://localhost/html/index.html" accesskey="i" tabindex="1">Inicio</a></li>
+					<li><a href="http://localhost/html/explanation.html" accesskey="e" tabindex="2">Explicación</a> de la aplicación</li>
+					<li><a href="http://localhost/html/post.html" accesskey="c" tabindex="3">Compartir</a> una fotografía</li>
+					<li><a href="http://localhost/html/list.php" accesskey="l" tabindex="4">Lista</a> de fotografías de la aplicación</li>
+					<li><a href="http://localhost/html/region_list.php" accesskey="r" tabindex="5">Regiones</a> presentes en la aplicación</li>
+				</ul>
+			</nav>
+		</aside>
+		<main>
+		<h2>Listado de Imágenes</h2>
+		<section>
+			<h3>Opciones de búsqueda</h3>
+			<form method="GET" action="/html/list.php">
+				<fieldset>
+					<legend>Datos</legend>
+					<p>Nombre: <label> 
+						<input type="text" name="name">
+						
+					</label></p>
+					<p>Autor: <label> 
+						<input type="text" name="author">
+						
+					</label></p>
+				</fieldset>
+				<fieldset>
+					<legend>Lugar</legend>
+					<p>Region: <label>
+						<select name="region">
+<option value="1" selected="selected">Mundo</option><option value="2">Europa</option><option value="3">España</option><option value="4">Francia *vomita*</option>						</select>
+					</label></p>
+					<p>Cercanos a tí <label>
+						<input type="checkbox" name="close">
+					</label></p>
+				</fieldset>
+				<fieldset>
+					<legend>Orden</legend>
+					<p><label> 
+						<input type="radio" name="order" value="true">Ascendiente
+					</label></p>
+					<p><label> 
+						<input type="radio" name="order" value="false">Descendiente
+					</label></p>
+				</fieldset>
+				<p><label> <button type="submit">Buscar</button></label></p>
+			</form>
+		</section>
+			<section>
+				<h4>Resultados</h4>
+<section><h6>Cute cat</h6><picture><img alt="A cute cat I found" src="GeImagen%20-%20Lista_files/cute_cat.jpg"></picture><p><a href="http://localhost/html/detail.php?id=1">Ir</a></p></section><section><h6>Cute otter</h6><picture><img alt="A couple of otters" src="GeImagen%20-%20Lista_files/cute_otter.jpg"></picture><p><a href="http://localhost/html/detail.php?id=2">Ir</a></p></section><section><h6>House</h6><picture><img alt="A house" src="GeImagen%20-%20Lista_files/house.jpg"></picture><p><a href="http://localhost/html/detail.php?id=3">Ir</a></p></section>			</section>
+		</main>
+		<footer>
+			<h3>Información adicional</h3>
+			<p>Autor: Mario Lombas</p>
+			<p>27/05/2022</p>
+		</footer>
+	
+
+</body></html>
