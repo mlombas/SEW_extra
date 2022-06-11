@@ -57,11 +57,11 @@ class RegionMaker
 			<h2>Navegación</h2>
 			<nav>
 				<ul>
-					<li><a href="../html/index.html" accesskey="i" tabindex="1">Inicio</a></li>
-					<li><a href="../html/explanation.html" accesskey="e" tabindex="2">Explicación</a> de la aplicación</li>
-					<li><a href="../html/post.html" accesskey="c" tabindex="3">Compartir</a> una fotografía</li>
-					<li><a href="../html/list.php" accesskey="l" tabindex="4">Lista</a> de fotografías de la aplicación</li>
-					<li><a href="../html/region_list.php" accesskey="r" tabindex="5">Regiones</a> presentes en la aplicación</li>
+					<li><a href="../html/index.html">Inicio</a></li>
+					<li><a href="../html/explanation.html">Explicación</a> de la aplicación</li>
+					<li><a href="../html/post.html">Compartir</a> una fotografía</li>
+					<li><a href="../html/list.php">Lista</a> de fotografías de la aplicación</li>
+					<li><a href="../html/region_list.php">Regiones</a> presentes en la aplicación</li>
 				</ul>
 			</nav>
 		</aside>

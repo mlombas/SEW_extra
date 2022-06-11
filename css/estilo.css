@@ -35,6 +35,16 @@ body > aside nav ul > li {
 
 	text-align: center;
 }
+body > aside nav ul > li a {
+	text-decoration: none;
+
+	background-color: #e3e3e3;
+	color: #00078a;
+}
+body > aside nav ul > li a:after {
+	background-color: #e3e3e3;
+	color: #00005a;
+}
 
 address ul > li {
 	margin: 0;
@@ -227,3 +237,4 @@ main > aside > section h4 {
 main > aside h5 {
 	font-size: 1em;
 }
+
