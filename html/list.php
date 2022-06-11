@@ -101,7 +101,7 @@ class ListManager
 	private function insertPhoto($photo, $place) {
 		echo "<section>";
 
-		echo "<h6>" . $photo->getName() . "</h6>";
+		echo "<h3>" . $photo->getName() . "</h3>";
 
 		echo "<picture>";
 		echo "<img";
@@ -118,7 +118,7 @@ class ListManager
 		//by place
 		if(isset($_GET["close"]))
 			echo "<script> loc.addElement(" .
-				"$(\"h6:contains('" . $photo->getName() . "')\").parent()," .
+				"$(\"h3:contains('" . $photo->getName() . "')\").parent()," .
 				"\"" . $place->getCoordinates() . "\"" .
 				"); </script>";
 
@@ -152,66 +152,66 @@ $(document).ready(() => loc.filter());
 			</nav>
 		</aside>
 		<main>
-		<h1>Listado de Imágenes</h1>
-		<section>
-			<h3>Opciones de búsqueda</h3>
-			<form
-				method="GET"
-				action="/html/list.php"
-			>
-				<fieldset>
-					<legend>Datos</legend>
-					<p>Nombre: <label> 
-						<input type="text" name="name" 
-						value="<?php echo $manager->getName();  ?>"
-						>
-						</input>
-					</label></p>
-					<p>Autor: <label> 
-						<input type="text" name="author" 
-						value="<?php echo $manager->getAuthor(); ?>"
-						>
-						</input>
-					</label></p>
-				</fieldset>
-				<fieldset>
-					<legend>Lugar</legend>
-					<p>Region: <label>
-						<select name="region">
-<?php $manager->printRegionOptions(); ?>
-						</select>
-					</label></p>
-					<p>Cercanos a tí <label>
-						<input type="checkbox" name="close"
-						<?php $manager->checkedClose(); ?>
-						></input>
-					</label></p>
-				</fieldset>
-				<fieldset>
-					<legend>Orden</legend>
-					<p><label> 
-						<input 
-							type="radio" 
-							name="order" 
-							value="true"
-<?php $manager->checkedAscending(); ?>
-						>Ascendiente</input>
-					</label></p>
-					<p><label> 
-						<input 
-							type="radio" 
-							name="order" 
-							value="false"
-<?php $manager->checkedDescending(); ?>
-						>Descendiente</input>
-					</label></p>
-				</fieldset>
-				<p><label> <button type=submit>Buscar</button></input></p>
-			</form>
-		</section>
+			<h1>Listado de Imágenes</h1>
 			<section>
-				<h4>Resultados</h4>
-<?php $manager->insertPhotos(); ?>
+				<h2>Opciones de búsqueda</h2>
+				<form
+					method="GET"
+					action="/html/list.php"
+				>
+					<fieldset>
+						<legend>Datos</legend>
+						<p>Nombre: <label> 
+							<input type="text" name="name" 
+							value="<?php echo $manager->getName();  ?>"
+							>
+							</input>
+						</label></p>
+						<p>Autor: <label> 
+							<input type="text" name="author" 
+							value="<?php echo $manager->getAuthor(); ?>"
+							>
+							</input>
+						</label></p>
+					</fieldset>
+					<fieldset>
+						<legend>Lugar</legend>
+						<p>Region: <label>
+							<select name="region">
+	<?php $manager->printRegionOptions(); ?>
+							</select>
+						</label></p>
+						<p>Cercanos a tí <label>
+							<input type="checkbox" name="close"
+							<?php $manager->checkedClose(); ?>
+							></input>
+						</label></p>
+					</fieldset>
+					<fieldset>
+						<legend>Orden</legend>
+						<p><label> 
+							<input 
+								type="radio" 
+								name="order" 
+								value="true"
+	<?php $manager->checkedAscending(); ?>
+							>Ascendiente</input>
+						</label></p>
+						<p><label> 
+							<input 
+								type="radio" 
+								name="order" 
+								value="false"
+	<?php $manager->checkedDescending(); ?>
+							>Descendiente</input>
+						</label></p>
+					</fieldset>
+					<p><label> <button type=submit>Buscar</button></input></p>
+				</form>
+			</section>
+			<section>
+				<h2>Resultados</h2>
+	<?php $manager->insertPhotos(); ?>
 			</section>
 		</main>
 		<footer>

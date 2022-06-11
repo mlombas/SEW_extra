@@ -1,10 +1,10 @@
-main > h2 ~ section:nth-child(3) {
+main > h1 ~ section:nth-child(3) {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
 }
-main > h2 ~ section:nth-child(3) > h4 {
+main > section:nth-child(3) > h2 {
 	font-size: 3em;
 	text-align: center;
 
@@ -13,7 +13,7 @@ main > h2 ~ section:nth-child(3) > h4 {
 	 */
 	flex-basis: 100%;
 }
-main > section > h4 ~ section {
+main > section > h2 ~ section {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
@@ -22,13 +22,13 @@ main > section > h4 ~ section {
 	border: .2em solid black;
 	padding: 2em;
 }
-main > section > h4 ~ section img {
+main > section > h2 ~ section img {
 	width: 20vw;
 }
-main > section > h4 ~ section h6 {
+main > section > h2 ~ section h3 {
 	font-size: 1.5em;
 }
-main > section > h4 ~ section a {
+main > section > h2 ~ section a {
 	font-size: .75em;
 	text-decoration: none;
 
@@ -37,11 +37,11 @@ main > section > h4 ~ section a {
 
 	padding: .3em;
 }
-main > section > h4 ~ section a:hover {
+main > section > h2 ~ section a:hover {
 	color: black;
 	background-color: #c7c7c7;
 }
-main > section > h4 ~ section a:active {
+main > section > h2 ~ section a:active {
 	color: white;
 	background-color: black;
 }

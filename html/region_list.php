@@ -35,14 +35,14 @@ class RegionMaker
 	private function makeRegionSection($region) {
 		echo "<section>";
 
-		echo "<h4>" . $region->getName() . "</h4>";
+		echo "<h2>" . $region->getName() . "</h2>";
 		echo "<p>ID: " . $region->getId() . "</p>";
 
 		$subregions = $this->db->region()->bySuperregion($region);
 		if(!empty($subregions)) {
 			echo "<section>";
 
-			echo "<h6>Sub-regiones: </h6>";
+			echo "<h3>Sub-regiones: </h3>";
 			foreach($subregions as $subregion) 
 				$this->makeRegionSection($subregion);
 
@@ -54,7 +54,7 @@ class RegionMaker
 }
 ?>
 		<aside>
-			<h2>Navegación</h2>
+			<h1>Navegación</h1>
 			<nav>
 				<ul>
 					<li><a href="../html/index.html">Inicio</a></li>
