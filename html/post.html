@@ -5,6 +5,9 @@
 		<meta name="application-name" content="geimagen" />
 		<meta name="author" content="Mario Lombas - UO275901" />
 
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Public+Sans:wght@200&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="../css/estilo.css" />
 		<link rel="stylesheet" href="../css/estilo-pc.css" />
 		<link rel="stylesheet" href="../css/estilo-movil.css" />
@@ -16,8 +19,11 @@
 			<h2>Navegación</h2>
 			<nav>
 				<ul>
-					<li><a href="../html/compartir.html" accesskey="c" tabindex="1">Compartir</a> una fotografía</li>
-					<li><a href="../html/explicación.html" accesskey="e" tabindex="2">Explicación</a> de la aplicación</li>
+					<li><a href="../html/index.html" accesskey="i" tabindex="1">Inicio</a></li>
+					<li><a href="../html/explanation.html" accesskey="e" tabindex="2">Explicación</a> de la aplicación</li>
+					<li><a href="../html/post.html" accesskey="c" tabindex="3">Compartir</a> una fotografía</li>
+					<li><a href="../html/list.php" accesskey="l" tabindex="4">Lista</a> de fotografías de la aplicación</li>
+					<li><a href="../html/region_list.php" accesskey="r" tabindex="5">Regiones</a> presentes en la aplicación</li>
 				</ul>
 			</nav>
 		</aside>
@@ -27,7 +33,7 @@
 				<h3>Introducir datos manualmente</h3>
 				<form
 					method="POST"
-					enctype = "multipart/form-data"
+					enctype="multipart/form-data"
 					action="/html/add.php"
 				>
 					<fieldset>
@@ -73,6 +79,22 @@
 							name="author_address"
 						/>
 					</fieldset>
+					<button type="submit">Enviar</button>
+					<button type="reset">Limpiar</button>
+				</form>
+			</section>
+			<section>
+				<h3>Subir documento XML</h3>
+				<form
+					method="POST"
+					enctype="multipart/form-data"
+					action="/html/add.php"
+				>
+					<label for="document">Documento: </label>
+					<input id="document" type="file" accept=".xml"
+						name="document" required/>
+					<input type="file" accept=".jpg,.png"
+						name="image" required/>
 					<button type="submit">Enviar</button>
 					<button type="reset">Limpiar</button>
 				</form>

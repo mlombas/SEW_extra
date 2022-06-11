@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="application-name" content="geimagen" />
+		<meta name="author" content="Mario Lombas - UO275901" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Public+Sans:wght@200&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="../css/estilo.css" />
+		<link rel="stylesheet" href="../css/estilo-pc.css" />
+		<link rel="stylesheet" href="../css/estilo-movil.css" />
+
+		<title>GeImagen - Explicación</title>
+	</head>
+	<body>
+		<aside>
+			<h2>Navegación</h2>
+			<nav>
+				<ul>
+					<li><a href="../html/index.html" accesskey="i" tabindex="1">Inicio</a></li>
+					<li><a href="../html/explanation.html" accesskey="e" tabindex="2">Explicación</a> de la aplicación</li>
+					<li><a href="../html/post.html" accesskey="c" tabindex="3">Compartir</a> una fotografía</li>
+					<li><a href="../html/list.php" accesskey="l" tabindex="4">Lista</a> de fotografías de la aplicación</li>
+					<li><a href="../html/region_list.php" accesskey="r" tabindex="5">Regiones</a> presentes en la aplicación</li>
+				</ul>
+			</nav>
+		</aside>
+		<main>
+			<h2>Explicación sobre el uso de la App</h2>
+			<section>
+				<h3>Fotografías</h3>
+				<p>
+				Las fotografías en esta aplicación web van acompañadas
+				de una variedad de metadatos, que veremos a continuación.
+				</p>
+				<ul>
+					<li>
+						<strong>Nombre:</strong> 
+						<p>
+						El nombre de la imágen en cuestión
+						</p>
+					</li>
+					<li>
+						<strong>Descripción:</strong> 
+						<p>
+						Descripción proporcionada por el autor de la imagen
+						</p>
+					</li>
+					<li>
+						<strong>Lugar:</strong> 
+						<p>
+						Información sobre el lugar donde se sacó la imagen,
+						más información debajo
+						</p>
+					</li>
+					<li>
+						<strong>Licencia:</strong> 
+						<p>
+						La licencia con la que la imagen ha sido publicada
+						</p>
+					</li>
+					<li>
+						<strong>Fecha:</strong> 
+						<p>
+						Fecha y hora en la que la imagen se ha sacado,
+						más información abajo
+						</p>
+					</li>
+					<li>
+						<strong>Autores:</strong> 
+						<p>
+						Los autores de la imagen
+						</p>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Lugar</h3>
+				<p>
+				El lugar en el cual se ha sacado la fotografía consta
+				de varias partes.
+				</p>
+				<ul>
+					<li>
+						<strong>Coordenadas:</strong> 
+						<p>
+						Las coordenadas en las que se tomó la fotografía
+						</p>
+					</li>
+					<li>
+						<strong>Dirección a seguir:</strong> 
+						<p>
+						La dirección en la que moverse para llegar
+						a las coordenadas de la imagen. Aparecen
+						dos datos, el nombre textual de la dirección
+						(por ejemplo, norte) y una flecha. Esta flecha
+						indica la dirección a seguir, asumiendo que el norte
+						está hacia arriba.
+						</p>
+					</li>
+					<li>
+						<strong>Región:</strong> 
+						<p>
+						La región en la que la fotografía fué tomada. Más
+						información sobre el sistema de regiones abajo.
+						</p>
+					</li>
+					<li>
+						<strong>Dirección de la cámara:</strong> 
+						<p>
+						Incluye una descripción textual del lugar exacto
+						desde el que la fotografía fué tomada, y una
+						flecha. Si giras tu dispositivo en la dirección
+						que apunta la flecha, cuando desaparezca esta
+						tu dispositivo estará apuntando en la dirección
+						en la que se apuntó para tomar la imagen.
+						Esta información puede no estar siempre disponible.
+						</p>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Fecha</h3>
+				<p>
+				La fecha contiene varios campos de información.
+				</p>
+				<ul>
+					<li>
+						<strong>Fecha en el lugar de la imagen:</strong> 
+						<p>
+						Fecha y hora en la que se tomó la imagen, en
+						la hora local del lugar de la imagen
+						</p>
+					</li>
+					<li>
+						<strong>Conversión a la hora local:</strong> 
+						<p>
+						Fecha y hora en la que se tomó la imagen, 
+						convertida a la hora local del usuario
+						</p>
+					</li>
+					<li>
+						<strong>Momento del día</strong> 
+						<p>
+						Momento del día en el que se tomó la imagen,
+						calculado a partir de la hora de salida y puesta
+						del sol.
+						</p>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Sistema de regiones</h3>
+				<p>
+				La aplicación cuenta con un sistema de regiones, que
+				se va actualizando a medida que se suben las imágenes.
+				Las fotografías pueden estar asociadas a una región, que
+				a su vez puede estar asociada a super-regiones.
+				Este sistema permite filtrar en la 
+				<a href="../html/list.php">lista de fotografías</a> 
+				por región. Al seleccionar una región, aparecerán
+				fotos de esta y de todas sus sub-regiones.
+				</p>
+				<p>
+				Puedes consultar las regiones existentes en 
+				<a href="../html/region_list.php">la página de regiones</a>
+				</p>
+			</section>
+		</main>
+		<footer>
+			<h3>Información adicional</h3>
+			<p>Autor: Mario Lombas</p>
+			<p>27/05/2022</p>
+		</footer>
+	</body>
+</html>

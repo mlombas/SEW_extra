@@ -1,9 +1,7 @@
 <!ELEMENT imagen (
-	fotografia, descripcion, lugar,
+	nombre, descripcion, lugar,
 	fecha, posicion?, autor?, licencia?
 )>
-
-<!ELEMENT fotografia (#PCDATA)>
 
 <!ELEMENT descripcion (#PCDATA)>
 

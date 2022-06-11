@@ -24,7 +24,8 @@ class PhotoManager extends DBManager
 			$row["description"],
 			$row["time"],
 			$row["license"],
-			(int) $row["place_id"]
+			(int) $row["place_id"],
+			(int) $row["direction_id"]
 		);
 	}
 
@@ -419,6 +420,66 @@ class RegionManager extends DBManager
 	}
 }
 
+class DirectionManager extends DBManager
+{
+	function __construct($db) {
+		parent::__construct($db);
+	}
+
+	private function rowToDirection($row) {
+		return new Direction(
+			(int) $row["direction_id"],
+			$row["position"],
+			$row["direction"]
+		);
+	}
+
+	function byId($id) {
+		if(!$id) return null;
+
+		$query = "SELECT * " .
+			"FROM direction " .
+			"WHERE direction_id = ?";
+
+		$pquery = $this->db->prepare($query);
+		$pquery->bind_param("i", $id);
+		$pquery->execute();
+		$result = $pquery->get_result();
+
+		$row = $result->fetch_array();
+		return $this->rowToDirection($row);
+	}
+
+	function ofPhoto($photo) {
+		return $this->byId($photo->getDirectionId());
+	}
+
+	function insert($direction) {
+		$query = "INSERT INTO direction (" .
+			"position, direction" .
+			") VALUES (?, ?)";
+		
+		$pquery = $this->db->prepare($query);
+
+		$position = $direction->getPosition();
+		$direction = $direction->getDirection();
+
+		$pquery->bind_param("si",
+			$position, $direction
+		);
+		$pquery->execute();
+
+		$return_query =
+			"SELECT * FROM direction WHERE direction_id = LAST_INSERT_ID()";
+		$pquery = $this->db->prepare($return_query);
+		$pquery->execute();
+		$result = $pquery->get_result();
+		$row = $result->fetch_array();
+
+		return $this->rowToDirection($row);
+	}
+}
+
 class Database
 {
 	private $db;
@@ -426,6 +487,7 @@ class Database
 	private $author;
 	private $place;
 	private $region;
+	private $direction;
 
 	function __construct() {
 		$this->db =
@@ -435,12 +497,14 @@ class Database
 		$this->author = new AuthorManager($this->db);
 		$this->place = new PlaceManager($this->db);
 		$this->region = new RegionManager($this->db);
+		$this->direction = new DirectionManager($this->db);
 	}
 
 	function photo() { return $this->photo; }
 	function author() { return $this->author; }
 	function place() { return $this->place; }
 	function region() { return $this->region; }
+	function direction() { return $this->direction; }
 
 	function bindPhotoAuthor($photo, $author) {
 		$query = "INSERT INTO photos_authors " .

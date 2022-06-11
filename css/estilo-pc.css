@@ -10,7 +10,18 @@
 	body > aside {
 		grid-area: 1 / 1 / 2 / 1;
 
-		position: fixed;
+		position: sticky;
+		top: 0;
+		height: 100vh;
+	}
+	body > aside nav ul {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-evenly;
+
+		list-style-type: none;
+
+		padding: .5vw;
 	}
 	body > main {
 		grid-area: 1 / 2 / 1 / 2;

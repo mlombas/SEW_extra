@@ -5,6 +5,9 @@
 		<meta name="application-name" content="geimagen" />
 		<meta name="author" content="Mario Lombas - UO275901" />
 
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Public+Sans:wght@200&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="../css/estilo.css" />
 		<link rel="stylesheet" href="../css/estilo-pc.css" />
 		<link rel="stylesheet" href="../css/estilo-movil.css" />
@@ -15,108 +18,257 @@
 <?php
 include "../php/bd_utils.php";
 
-function saveImage() {
-	$dir = "../imagenes/";
-	$original_name = $_FILES["image"]["name"];
-	$name = pathinfo($original_name)["filename"];
-	$imgFileType = strtolower(pathinfo($original_name)["extension"]);
+class PhotoAdder 
+{
+	private $db;
+	function __construct() {
+		$this->db = new Database();
+	}
 
-	for(
-		$i = 0;
+	private function getNextName($original_name) {
+		$dir = "../imagenes/";
+		$name = pathinfo($original_name)["filename"];
+		$imgFileType = strtolower(pathinfo($original_name)["extension"]);
+
+		for(
+			$i = 0;
 		file_exists($dir . $name . $i . "." . $imgFileType);
 		$i++
-	);
+		);
 
-	$result_name = $dir . $name . $i . "." . $imgFileType;
+		$result_name = $dir . $name . $i . "." . $imgFileType;
+		return $result_name;
+	}
 
-	return array(
-		"result" => move_uploaded_file(
-			$_FILES["image"]["tmp_name"],
-			$result_name
-		),
-		"filename" => $name . $i . "." . $imgFileType
-	);
+	private function saveImage() {
+		$original_name = $_FILES["image"]["name"];
+		$result_name = $this->getNextName($original_name);
 
+		return array(
+			"result" => move_uploaded_file(
+				$_FILES["image"]["tmp_name"],
+				$result_name
+			),
+			"filename" => basename($result_name)
+		);
+	}
+
+	function addByData() {
+		//Before all, try to store image
+		$fupload = $this->saveImage();
+		//If it doesnt work, we stop here
+		if(!$fupload["result"]) return false;
+
+		$region = null;
+		//If it is numeric, user has passed us a region ID,
+		//act accordingly
+		if(is_numeric($_POST["region"]))
+			$region = $this->db->region()->byId(intval($_POST["region"]));
+		else //If not a number, try to get region by name
+			$region = $this->db->region()->byName($_POST["region"]);
+
+		//If region doesnt exists, create a new one
+		if($region === null) 
+			$region = $this->db->region()->insert(new Region(
+				id: -1, name: $_POST["region"], superregion_id: null
+			));
+
+		//Add place...
+		$place = new Place(
+			id: -1, coordinates: $_POST["coords"],
+			region_id: $region->getId()
+		);
+		$place = $this->db->place()->insert($place);
+
+		//Add photo...
+		$photo = new Photo(
+			id: -1, name: $_POST["name"], link: $fupload["filename"],
+			description: $_POST["description"], time: $_POST["date"],
+			license: $_POST["license"], place_id: $place->getId()
+		);
+		$photo = $this->db->photo()->insert($photo);
+
+		//Add author...
+		$author = new Author(
+			id: -1, name: $_POST["author_name"], 
+			email: $_POST["author_email"],
+			address: $_POST["author_address"],
+			phone_number: $_POST["author_phone"]
+		);
+		$author = $this->db->author()->insert($author);
+
+		//Bind author and photo
+		$this->db->bindPhotoAuthor($photo, $author);
+
+		//We tell the user that all nice
+		return $photo->getId();
+	}
+
+	private function add_region($name, $superregion_id) {
+		//If neither exists, then we cannot create a region
+		//without a name. Bad result and return
+		if(!$name) return false;
+
+		$inserted = $this->db->region()->insert(new Region(
+			id: -1, name: $name, superregion_id: $superregion_id
+		));
+		return $inserted;
+	}
+
+	private function make_regions($start_region) {
+		//Get regions present in xml
+		$present_regions = array();
+		for(
+			$curr_region = $start_region;
+		$curr_region;
+		$curr_region = $curr_region->region
+		) array_unshift($present_regions, $curr_region);
+
+
+		//Get regions present in db
+		$db_regions = array();
+		for(
+			$curr_region = $start_region;
+		$curr_region;
+		$curr_region = $curr_region->region
+		) {
+			$fetched_region = null;
+			if($curr_region->nombre)
+				$fetched_region =
+					$this->db->region()->byName($curr_region->nombre);
+			else if($curr_region->id)
+				$fetched_region =
+					$this->db->region()->byId($curr_region->id);
+
+			array_unshift($db_regions, $fetched_region); 
+		}
+
+		//Add neccesary regions
+		$superregion_id = null;
+		for($i = 0; $i < count($db_regions); $i += 1) {
+			$region = $db_regions[$i];
+			$potential_name = $present_regions[$i]->nombre;
+
+			if(!$region) {
+				$region = $this->add_region(
+					$potential_name, $superregion_id
+				);
+				if(!$region) return false;
+
+				$db_regions[$i] = $region;
+			}
+
+			$superregion_id = $region->getId();
+		}
+
+		return end($db_regions);
+	}
+
+	function addByXML() {
+		if($_FILES["document"]["error"]) {
+			bad_upload();
+			return;
+		}
+
+		$fupload = $this->saveImage();
+		//If it doesnt work, we stop here
+		if(!$fupload["result"]) {
+			bad_upload();
+			return;
+		}
+
+
+		$image = simplexml_load_file($_FILES["document"]["tmp_name"]);
+
+		//Create regions if necessary
+		$region = $this->make_regions($image->lugar->region);
+		if(!$region) return false;
+
+		//Add place...
+		$place = new Place(
+			id: -1, coordinates: $image->lugar->coordenadas,
+			region_id: $region->getId()
+		);
+		$place = $this->db->place()->insert($place);
+
+		//If date is a timestamp, we must convert it
+		$date = null;
+		if($image->fecha->timestamp) 
+			$date = date('c', intval($image->fecha->timestamp));
+		else if($image->fecha->iso)
+			$date = $image->fecha->iso;
+
+		//Add photo...
+		$photo = new Photo(
+			id: -1, name: $image->nombre, link: $fupload["filename"],
+			description: $image->descripcion, time: $date,
+			license: $image->licencia, place_id: $place->getId()
+		);
+		$photo = $this->db->photo()->insert($photo);
+
+		//Add author...
+		$author = new Author(
+			id: -1, name: $image->autor->nombre,
+			email: $image->autor->email,
+			address: $image->autor->direccion,
+			phone_number: $image->autor->telefono
+		);
+		$author = $this->db->author()->insert($author);
+
+		//Bind author and photo
+		$this->db->bindPhotoAuthor($photo, $author);
+
+		//We tell the user that all nice
+		return $photo->getId();
+	}
 }
 
-function bad_upload() {
-	echo "<h2>Ha fallado la subida de la imagen</h2>";
-	echo "<p>Por favor intentelo de nuevo</h2>";
-}
+class Printer {
+	private $adder;
 
-function good($url) {
-	echo "<h2>¡Su fotografía ha sido subida con éxito!</h2>";
-	echo "<p>puedes pulsar " .
-		"<a href=\"" . $url . "\">aquí</a> " .
-		"para verla</p>";
+	function __construct() {
+		$this->adder = new PhotoAdder();
+	}
+
+	function printAll() {
+		$result = null;
+		if(isset($_FILES["document"])) 
+			$result = $this->adder->addByXML();
+		if(isset($_POST["name"])) 
+			$result = $this->adder->addByData();
+
+		if($result) 
+			$this->good("/html/detail.php?id=" . $result);
+		else $this->bad();
+	}
+
+	function bad_upload() {
+		echo "<h2>Ha fallado la subida de la imagen</h2>";
+		echo "<p>Por favor intentelo de nuevo</h2>";
+	}
+
+	function good($url) {
+		echo "<h2>¡Su fotografía ha sido subida con éxito!</h2>";
+		echo "<p>puedes pulsar " .
+			"<a href=\"" . $url . "\">aquí</a> " .
+			"para verla</p>";
+	}
 }
 ?>
 		<aside>
 			<h2>Navegación</h2>
 			<nav>
 				<ul>
-					<li><a href="../html/compartir.html" accesskey="c" tabindex="1">Compartir</a> una fotografía</li>
-					<li><a href="../html/explicación.html" accesskey="e" tabindex="2">Explicación</a> de la aplicación</li>
+					<li><a href="../html/index.html" accesskey="i" tabindex="1">Inicio</a></li>
+					<li><a href="../html/explanation.html" accesskey="e" tabindex="2">Explicación</a> de la aplicación</li>
+					<li><a href="../html/post.html" accesskey="c" tabindex="3">Compartir</a> una fotografía</li>
+					<li><a href="../html/list.php" accesskey="l" tabindex="4">Lista</a> de fotografías de la aplicación</li>
+					<li><a href="../html/region_list.php" accesskey="r" tabindex="5">Regiones</a> presentes en la aplicación</li>
 				</ul>
 			</nav>
 		</aside>
 		<main>
-<?php
-	if(isset($_POST["name"])) {
-		$db = new Database();
-
-		//Before all, try to store image
-		$fupload = saveImage();
-		//If it doesnt work, we stop here
-		if(!$fupload["result"])
-			bad_upload();
-		else {
-			$region = null;
-			//If it is numeric, user has passed us a region ID,
-			//act accordingly
-			if(is_numeric($_POST["region"]))
-				$region = $db->region()->byId(intval($_POST["region"]));
-			else //If not a number, try to get region by name
-				$region = $db->region()->byName($_POST["region"]);
-
-			//If region doesnt exists, create a new one
-			if($region === null) 
-				$region = $db->region()->insert(new Region(
-					id: -1, name: $_POST["region"], superregion_id: null
-				));
-
-			//Add place...
-			$place = new Place(
-				id: -1, coordinates: $_POST["coords"],
-				region_id: $region->getId()
-			);
-			$place = $db->place()->insert($place);
-
-			//Add photo...
-			$photo = new Photo(
-				id: -1, name: $_POST["name"], link: $fupload["filename"],
-				description: $_POST["description"], time: $_POST["date"],
-				license: $_POST["license"], place_id: $place->getId()
-			);
-			$photo = $db->photo()->insert($photo);
-
-			//Add author...
-			$author = new Author(
-				id: -1, name: $_POST["author_name"], 
-				email: $_POST["author_email"],
-				address: $_POST["author_address"],
-				phone_number: $_POST["author_phone"]
-			);
-			$author = $db->author()->insert($author);
-
-			//Bind author and photo
-			$db->bindPhotoAuthor($photo, $author);
-
-			//We tell the user that all nice
-			good("/html/detail.php?id=" . $photo->getId());
-		}
-}
-?>
+<?php (new Printer())->printAll(); ?>
 		</main>
 		<footer>
 			<h3>Información adicional</h3>

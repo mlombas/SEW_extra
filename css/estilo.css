@@ -1,6 +1,7 @@
 body {
 	color: black;
 	background: lightgrey;
+	font-family: 'Public Sans', sans-serif;
 }
 
 body > aside {
@@ -23,16 +24,16 @@ body > aside > h2 {
 }
 
 body > aside nav ul {
-	display: flex;
-	flex-wrap: nowrap;
-	justify-content: space-evenly;
-
 	list-style-type: none;
-
-	padding: .5vw;
 }
 body > aside nav ul > li {
+	background-color: #e3e3e3;
+	color: black;
+
 	margin: 2%;
+	padding: 1%;
+
+	text-align: center;
 }
 
 address ul > li {
@@ -70,4 +71,159 @@ main section {
 
 fieldset > p {
 	font-size: .65em;
+}
+
+main h1, main h2, main h3 {
+	font-family: 'Fjalla One', sans-serif;
+}
+
+footer h3 {
+	text-align: left;
+}
+
+h3 {
+	text-align: center;
+}
+h3 ~ ul > li {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+h3 ~ ul > li p {
+	border: .02em solid black;
+	padding: .1em .5em;
+}
+
+main > section {
+	display: flex;
+	flex-direction: column;
+}
+section > section {
+	display: inline-block;
+
+	margin: .5em 2%;
+}
+h6 ~ section {
+	padding: .2em 1em;
+	border: .1em dashed black;
+}
+h6 {
+	margin: .3em;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+
+	align-items: center;
+}
+
+fieldset {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+
+	align-items: stretch;
+}
+fieldset > input {
+	max-width: 30vw;
+}
+fieldset {
+	width: 90%;
+}
+form > button {
+	text-align: center;
+
+	max-width: 10vw;
+
+	margin: .5em;
+	padding: .5em;
+	border: .05em solid black;
+	border-radius: .3em;
+}
+form > button[type='submit'] {
+	background-color: darkgreen;
+	color: white;
+}
+form > button[type='submit']:hover {
+	background-color: #004011;
+	color: white;
+}
+form > button[type='submit']:active {
+	background-color: black;
+	color: white;
+}
+form > button[type='reset'] {
+	background-color: #9e0000;
+	color: white;
+}
+form > button[type='reset']:hover {
+	background-color: #5e0000;
+	color: white;
+}
+form > button[type='reset']:active {
+	background-color: black;
+	color: white;
+}
+
+main > article {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	border: .1em solid black;
+
+	margin: 1vw 5vw;
+}
+main > article > section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	min-width: 50%;
+
+	border: .1em dotted lightgrey;
+	padding: .1vw 2vw;
+	margin: .2vw 0;
+}
+main > article > section h4 { 
+	font-size: 1.5em;
+}
+main > article > section h6 { 
+	font-size: 1em;
+}
+
+main > article picture {
+	width: 90%;
+}
+picture img {
+	width: 100%;
+}
+
+main > aside {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	border: .2em dashed black;
+	margin: 1vw 5vw;
+}
+main > aside > section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	min-width: 50%;
+
+	border: .1em dotted lightgrey;
+	padding: .1vw 2vw;
+	margin: .2vw 0;
+}
+main > aside > section h4 { 
+	font-size: 1.5em;
+}
+main > aside h5 {
+	font-size: 1em;
 }

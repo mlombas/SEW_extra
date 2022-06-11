@@ -8,11 +8,12 @@ class Photo
 	private $time;
 	private $license;
 	private $place_id;
+	private $direction_id;
 
 	function __construct(
 		$id, $name, $link,
 		$description, $time, $license,
-		$place_id
+		$place_id, $direction_id = null
 	) {
 		$this->id = $id;
 		$this->name = $name;
@@ -21,6 +22,7 @@ class Photo
 		$this->time = $time;
 		$this->license = $license;
 		$this->place_id = $place_id;
+		$this->direction_id = $direction_id;
 	}
 
 	function getId() { return $this->id; }
@@ -36,6 +38,8 @@ class Photo
 	function getLicense() { return $this->license; }
 
 	function getPlaceId() { return $this->place_id; }
+
+	function getDirectionId() { return $this->direction_id; }
 }
 
 class Author
@@ -101,5 +105,24 @@ class Region
 	function getName() { return $this->name; }
 
 	function getSuperregionId() { return $this->superregion_id; }
+}
+
+class Direction
+{
+	private $id;
+	private $position;
+	private $direction;
+
+	function __construct($id, $position, $direction) {
+		$this->id = $id;
+		$this->position = $position;
+		$this->direction = $direction;
+	}
+
+	function getId() { return $this->id; }
+
+	function getPosition() { return $this->position; }
+
+	function getDirection() { return $this->direction; }
 }
 ?>

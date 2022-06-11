@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE imagen SYSTEM "imagen.dtd">
-<imagen>
-	<fotografia>
-		https://i.stack.imgur.com/2Sb2P.png
-	</fotografia>
+<imagen 
+	xsi:schemaLocation="imagen.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.uniovi.es"
+	>
+	<nombre>cerca</nombre>
 	<descripcion>
-		Ejemplo de codigo php
+		Este sitio esta cerca
 	</descripcion>
 	<lugar>
-		<coordenadas>30.234 32.234</coordenadas>
+		<coordenadas>43.36189439690781, -5.947999885844027</coordenadas>
 		<region>
-			<nombre>España</nombre>
+			<nombre>Campanario</nombre>
 			<region>
-				<id>2</id>
+				<nombre>Toledo</nombre>
+				<region>
+					<nombre>Castilla - La Mancha</nombre>
+					<region>
+						<nombre>España</nombre>
+					</region>
+				</region>
 			</region>
 		</region>
 	</lugar>

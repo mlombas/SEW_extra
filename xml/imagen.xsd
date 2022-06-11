@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="imagen">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="name"/>
+				<xs:element ref="descripcion"/>
+				<xs:element ref="lugar"/>
+				<xs:element ref="fecha"/>
+				<xs:element minOccurs="0" ref="posicion"/>
+				<xs:element minOccurs="0" ref="autor"/>
+				<xs:element minOccurs="0" ref="licencia"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="descripcion" type="xs:string"/>
+	<xs:element name="lugar">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="coordenadas"/>
+				<xs:element minOccurs="0" ref="region"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="coordenadas" type="coordenadas">
+	</xs:element>
+	<xs:element name="region">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element ref="nombre"/>
+					<xs:element ref="id"/>
+				</xs:choice>
+				<xs:element minOccurs="0" ref="region"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fecha">
+		<xs:complexType>
+			<xs:choice>
+				<xs:element ref="timestamp"/>
+				<xs:element ref="iso"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="timestamp" type="xs:positiveInteger"/>
+	<xs:element name="iso" type="xs:dateTime"/>
+	<xs:element name="posicion">
+		<xs:complexType mixed="true">
+			<xs:attribute name="direccion" use="required" type="direccion"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="autor">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" ref="nombre"/>
+				<xs:element minOccurs="0" ref="email"/>
+				<xs:element minOccurs="0" ref="telefono"/>
+				<xs:element minOccurs="0" ref="direccion"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="email" type="email"/>
+	<xs:element name="telefono" type="phone"/>
+	<xs:element name="direccion" type="xs:string"/>
+	<xs:element name="licencia" type="xs:string"/>
+	<xs:element name="nombre" type="xs:string"/>
+	<xs:element name="id" type="xs:nonNegativeInteger"/>
+
+	<xs:simpleType name="email">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[^\s]+@[^\s]+\.[^\s]+"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="phone">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(\+\d{1,3})?(\s?\d)*"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="coordenadas">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="-?\d{1,3}(\.\d+)?, -?\d{1,3}(\.\d+)?" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="direccion">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(-?\d+(\.\d*)?\ ?){3}" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

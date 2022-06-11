@@ -4,16 +4,27 @@
 	body {
 		display: flex;
 		flex-direction: column;
-		flex-wrap: nowrap;
+		flex-wrap: wrap-reverse;
 		justify-content: center;
 		align-items: stretch;
 	}
-
 	body > aside {
 		justify-content: center;
 		align-items: center;
 	}
+	body > aside nav ul {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: stretch;
+
+		padding: .5vw;
+	}
 	body > aside ul > li {
+		width: 96%;
 		margin: 2%;
+
+		text-align: center;
 	}
 }
