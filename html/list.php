@@ -113,7 +113,7 @@ class ListManager
 
 		echo "<p><a href=\"/html/detail.php?id=" .
 			$photo->getId() .
-			"\">Ver \"" . $photo->getName() . "\"</a></p>";
+			"\" aria-label=\"Ver " . $photo->getId() . "\">Ver \"" . $photo->getName() . "\"</a></p>";
 
 		//Add script to add to LocationFilter, if filtering
 		//by place
