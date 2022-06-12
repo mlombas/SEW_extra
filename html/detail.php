@@ -205,7 +205,7 @@ let page = new PageManager(
 			<h2>"<?php echo $maker->getName(); ?>"</h2>
 			<picture>
 				<img 
-					alt="<?php echo $maker->getName(); ?>" 
+					alt="<?php echo "Imagen: " . $maker->getName(); ?>" 
 					src="<?php echo "/imagenes/" . $maker->getLink(); ?>" 
 				/>
 			</picture>
