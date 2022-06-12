@@ -85,7 +85,8 @@ class PhotoAdder
 		$photo = new Photo(
 			id: -1, name: $_POST["name"], link: $fupload["filename"],
 			description: $_POST["description"], time: $_POST["date"],
-			license: $_POST["license"], place_id: $place->getId()
+			license: $_POST["license"], place_id: $place->getId(),
+			direction_id: $direction->getId()
 		);
 		$photo = $this->db->photo()->insert($photo);
 
@@ -192,6 +193,13 @@ class PhotoAdder
 		);
 		$place = $this->db->place()->insert($place);
 
+		//Add direction...
+		$direction = new Direction(
+			id: -1, position: $image->posicion,
+			direction: $image->posicion->attributes()["direccion"]
+		);
+		$direction = $this->db->direction()->insert($direction);
+
 		//If date is a timestamp, we must convert it
 		$date = null;
 		if($image->fecha->timestamp) 
@@ -203,7 +211,8 @@ class PhotoAdder
 		$photo = new Photo(
 			id: -1, name: $image->nombre, link: $fupload["filename"],
 			description: $image->descripcion, time: $date,
-			license: $image->licencia, place_id: $place->getId()
+			license: $image->licencia, place_id: $place->getId(),
+			direction_id: $direction->getId()
 		);
 		$photo = $this->db->photo()->insert($photo);
 
@@ -235,7 +244,7 @@ class Printer {
 		$result = null;
 		if(isset($_FILES["document"])) 
 			$result = $this->adder->addByXML();
-		if(isset($_POST["name"])) 
+		else if(isset($_POST["name"])) 
 			$result = $this->adder->addByData();
 
 		if($result) 
