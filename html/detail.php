@@ -218,7 +218,7 @@ let page = new PageManager(
 			</section>
 			<?php $maker->printDirection(); ?>
 		</article>
-		<aside>
+		<aside aria-label="extra info">
 			<h2>Información adicional</h2>
 				<p>Licencia: <?php echo $maker->getLicense() ?></p>
 			<section>
