@@ -3,6 +3,7 @@
 		<meta charset="UTF-8">
 		<meta name="application-name" content="geimagen">
 		<meta name="author" content="Mario Lombas - UO275901">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -42,40 +43,46 @@ $(document).ready(() => loc.filter());
 				<form method="GET" action="/html/list.php">
 					<fieldset>
 						<legend>Datos</legend>
-						<p>Nombre: <label> 
-							<input type="text" name="name" value="">
-							
-						</label></p>
-						<p>Autor: <label> 
-							<input type="text" name="author" value="">
-							
-						</label></p>
+						<p>
+						<label for="name">Nombre: </label> 
+						<input id="name" type="text" name="name" value="">
+						
+						</p>
+						<p>
+						<label for="author">Autor: </label> 
+						<input id="author" type="text" name="author" value="">
+						
+						</p>
 					</fieldset>
 					<fieldset>
 						<legend>Lugar</legend>
-						<p>Region: <label>
-							<select name="region">
-	<option value="1">Mundo</option><option value="2">Europa</option><option value="3">España</option><option value="4">Francia *vomita*</option>							</select>
-						</label></p>
-						<p>Cercanos a tí <label>
-							<input type="checkbox" name="close">
-						</label></p>
+						<p>
+						<label for="region">Region: </label>
+						<select id="region" name="region">
+<option value="1" selected="">Mundo</option><option value="2">Europa</option><option value="3">España</option><option value="4">Francia *vomita*</option>						</select>
+						</p>
+						<p>
+						<label for="close">Cercanos a tí </label>
+						<input id="close" type="checkbox" name="close">
+						</p>
 					</fieldset>
 					<fieldset>
 						<legend>Orden</legend>
-						<p><label> 
-							<input type="radio" name="order" value="true">Ascendiente
-						</label></p>
-						<p><label> 
-							<input type="radio" name="order" value="false">Descendiente
-						</label></p>
+						<p>
+						<label for="order_asc">Ascendiente</label>
+						<input id="order_asc" type="radio" name="order" value="true">
+						</p>
+						<p>
+						<label for="order_desc">Descendiente</label>
+						<input id="order_desc" type="radio" name="order" value="false">
+						</p>
 					</fieldset>
-					<p><label> <button type="submit">Buscar</button></label></p>
+					<button type="submit">Buscar</button>
 				</form>
 			</section>
 			<section>
 				<h2>Resultados</h2>
-	<section><h3>Cute cat</h3><picture><img alt="A cute cat I found" src="/imagenes/cute_cat.jpg"></picture><p><a href="/html/detail.php?id=1">Ir</a></p></section><section><h3>Cute otter</h3><picture><img alt="A couple of otters" src="/imagenes/cute_otter.jpg"></picture><p><a href="/html/detail.php?id=2">Ir</a></p></section><section><h3>House</h3><picture><img alt="A house" src="/imagenes/house.jpg"></picture><p><a href="/html/detail.php?id=3">Ir</a></p></section>			</section>
+	<section><h3>Cute cat</h3><picture><img alt="A cute cat I found" src="/imagenes/cute_cat.jpg"></picture><p><a href="/html/detail.php?id=1">Ver "Cute cat"</a></p></section><section><h3>Cute otter</h3><picture><img alt="A couple of otters" src="/imagenes/cute_otter.jpg"></picture><p><a href="/html/detail.php?id=2">Ver "Cute otter"</a></p></section><section><h3>House</h3><picture><img alt="A house" src="/imagenes/house.jpg"></picture><p><a href="/html/detail.php?id=3">Ver "House"</a></p></section>			</section>
 		</main>
 		<footer>
 			<h3>Información adicional</h3>
