@@ -55,7 +55,7 @@ class RegionMaker
 }
 ?>
 		<aside>
-			<h1>Navegación</h1>
+			<h2>Navegación</h2>
 			<nav>
 				<ul>
 					<li><a href="../html/index.html">Inicio</a></li>
