@@ -123,8 +123,8 @@ class PhotoManager extends DBManager
 	function insert($photo) {
 		$query = "INSERT INTO photo (" .
 			"photo_name, photo_link, description, place_id," .
- 			"time, license" .
-			") VALUES (?, ?, ?, ?, ?, ?)";
+ 			"time, license, direction_id" .
+			") VALUES (?, ?, ?, ?, ?, ?, ?)";
 		
 		$pquery = $this->db->prepare($query);
 
@@ -134,10 +134,12 @@ class PhotoManager extends DBManager
 		$placeId = $photo->getPlaceId();
 		$time = $photo->getTime();
 		$license = $photo->getLicense();
+		$directionId = $photo->getDirectionId();
 
-		$pquery->bind_param("sssiss",
+		$pquery->bind_param("sssissi",
 			$name, $link, $description,
-			$placeId, $time, $license
+			$placeId, $time, $license,
+			$directionId
 		);
 		$pquery->execute();
 
@@ -462,10 +464,10 @@ class DirectionManager extends DBManager
 		$pquery = $this->db->prepare($query);
 
 		$position = $direction->getPosition();
-		$direction = $direction->getDirection();
+		$dir_coords = $direction->getDirection();
 
-		$pquery->bind_param("si",
-			$position, $direction
+		$pquery->bind_param("ss",
+			$position, $dir_coords
 		);
 		$pquery->execute();
 

@@ -41,13 +41,6 @@
 		min-width: 50vw;
 	}
 
-	main {
-		display: flex;
-		flex-direction: column;
-
-		padding-bottom: 18vw;
-	}
-
 	main section {
 		margin: 1vw;
 	}

@@ -59,10 +59,17 @@ address a {
 }
 
 main {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+
 	color: black;
 	background: white;
 
 	margin: 1vw;
+}
+main > p {
+	text-align: center;
 }
 main h1, main h2, main h1 + p {
 	text-align: center;
