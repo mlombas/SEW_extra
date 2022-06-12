@@ -41,6 +41,9 @@
 		min-width: 50vw;
 	}
 
+	main {
+		padding-bottom: 17vw;
+	}
 	main section {
 		margin: 1vw;
 	}
