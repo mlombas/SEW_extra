@@ -143,7 +143,7 @@ fieldset > input {
 fieldset {
 	width: 90%;
 }
-form > button {
+form button {
 	text-align: center;
 
 	max-width: 10vw;
@@ -153,27 +153,27 @@ form > button {
 	border: .05em solid black;
 	border-radius: .3em;
 }
-form > button[type='submit'] {
+form button[type='submit'] {
 	background-color: darkgreen;
 	color: white;
 }
-form > button[type='submit']:hover {
+form button[type='submit']:hover {
 	background-color: #004011;
 	color: white;
 }
-form > button[type='submit']:active {
+form button[type='submit']:active {
 	background-color: black;
 	color: white;
 }
-form > button[type='reset'] {
+form button[type='reset'] {
 	background-color: #9e0000;
 	color: white;
 }
-form > button[type='reset']:hover {
+form button[type='reset']:hover {
 	background-color: #5e0000;
 	color: white;
 }
-form > button[type='reset']:active {
+form button[type='reset']:active {
 	background-color: black;
 	color: white;
 }
