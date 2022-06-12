@@ -167,15 +167,13 @@ class PhotoAdder
 
 	function addByXML() {
 		if($_FILES["document"]["error"]) {
-			bad_upload();
-			return;
+			return false;
 		}
 
 		$fupload = $this->saveImage();
 		//If it doesnt work, we stop here
 		if(!$fupload["result"]) {
-			bad_upload();
-			return;
+			return false;
 		}
 
 
@@ -251,7 +249,7 @@ class Printer {
 
 		if($result) 
 			$this->good("/html/detail.php?id=" . $result);
-		else $this->bad();
+		else $this->bad_upload();
 	}
 
 	function bad_upload() {
