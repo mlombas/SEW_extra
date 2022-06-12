@@ -114,7 +114,7 @@ section > section {
 
 	margin: .5em 2%;
 }
-h2 ~ section > p ~ section {
+h2 ~ p ~ p ~ section {
 	margin: 1vw;
 	padding: .2em 1em;
 	border: .1em dashed black;
