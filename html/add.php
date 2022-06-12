@@ -71,30 +71,30 @@ class PhotoAdder
 		//If region doesnt exists, create a new one
 		if($region === null) 
 			$region = $this->db->region()->insert(new Region(
-				id: -1, name: $_POST["region"], superregion_id: null
+				-1, $_POST["region"], null
 			));
 
 		//Add place...
 		$place = new Place(
-			id: -1, coordinates: $_POST["coords"],
-			region_id: $region->getId()
+			-1, $_POST["coords"],
+			$region->getId()
 		);
 		$place = $this->db->place()->insert($place);
 
 		//Add photo...
 		$photo = new Photo(
-			id: -1, name: $_POST["name"], link: $fupload["filename"],
-			description: $_POST["description"], time: $_POST["date"],
-			license: $_POST["license"], place_id: $place->getId()
+			-1, $_POST["name"], $fupload["filename"],
+			$_POST["description"], $_POST["date"],
+			$_POST["license"], $place->getId()
 		);
 		$photo = $this->db->photo()->insert($photo);
 
 		//Add author...
 		$author = new Author(
-			id: -1, name: $_POST["author_name"], 
-			email: $_POST["author_email"],
-			address: $_POST["author_address"],
-			phone_number: $_POST["author_phone"]
+			-1, $_POST["author_name"], 
+			$_POST["author_email"],
+			$_POST["author_address"],
+			$_POST["author_phone"]
 		);
 		$author = $this->db->author()->insert($author);
 
@@ -111,7 +111,7 @@ class PhotoAdder
 		if(!$name) return false;
 
 		$inserted = $this->db->region()->insert(new Region(
-			id: -1, name: $name, superregion_id: $superregion_id
+			-1, $name, $superregion_id
 		));
 		return $inserted;
 	}
@@ -187,8 +187,8 @@ class PhotoAdder
 
 		//Add place...
 		$place = new Place(
-			id: -1, coordinates: $image->lugar->coordenadas,
-			region_id: $region->getId()
+			-1, $image->lugar->coordenadas,
+			$region->getId()
 		);
 		$place = $this->db->place()->insert($place);
 
@@ -196,8 +196,8 @@ class PhotoAdder
 		$direction = null;
 		if($image->position) {
 			$direction = new Direction(
-				id: -1, position: $image->posicion,
-				direction: $image->posicion->attributes()["direccion"]
+				-1, $image->posicion,
+				$image->posicion->attributes()["direccion"]
 			);
 			$direction = $this->db->direction()->insert($direction);
 		}
@@ -211,19 +211,19 @@ class PhotoAdder
 
 		//Add photo...
 		$photo = new Photo(
-			id: -1, name: $image->nombre, link: $fupload["filename"],
-			description: $image->descripcion, time: $date,
-			license: $image->licencia, place_id: $place->getId(),
-			direction_id: $direction ? $direction->getId() : null
+			-1, $image->nombre, $fupload["filename"],
+			$image->descripcion, $date,
+			$image->licencia, $place->getId(),
+			$direction ? $direction->getId() : null
 		);
 		$photo = $this->db->photo()->insert($photo);
 
 		//Add author...
 		$author = new Author(
-			id: -1, name: $image->autor->nombre,
-			email: $image->autor->email,
-			address: $image->autor->direccion,
-			phone_number: $image->autor->telefono
+			-1, $image->autor->nombre,
+			$image->autor->email,
+			$image->autor->direccion,
+			$image->autor->telefono
 		);
 		$author = $this->db->author()->insert($author);
 

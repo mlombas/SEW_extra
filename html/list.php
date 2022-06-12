@@ -30,21 +30,21 @@ class ListManager
 		if($_GET) {
 			if(isset($_GET["region"]))
 				$this->photos = $this->db->photo()->allInRegion(
-					ascending: isset($_GET["order"]) ? 
+					isset($_GET["order"]) ? 
 					$_GET["order"] === "true" :
 					true,
-					name: isset($_GET["name"]) ? $_GET["name"] : "",
-					author_name: isset($_GET["author"]) ? 
+					isset($_GET["name"]) ? $_GET["name"] : "",
+					isset($_GET["author"]) ? 
 						$_GET["author"] : "",
-					region: $this->db->region()->byId((int) $_GET["region"])
+					$this->db->region()->byId((int) $_GET["region"])
 				);
 			else
 				$this->photos = $this->db->photo()->all(
-					ascending: isset($_GET["order"]) ? 
+					isset($_GET["order"]) ? 
 					$_GET["order"] === "true" :
 					true,
-					name: isset($_GET["name"]) ? $_GET["name"] : "",
-					author_name: isset($_GET["author"]) ? $_GET["author"] : "",
+					isset($_GET["name"]) ? $_GET["name"] : "",
+					isset($_GET["author"]) ? $_GET["author"] : "",
 				);
 		} else {
 			$this->photos = $this->db->photo()->all();
