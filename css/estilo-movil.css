@@ -38,4 +38,18 @@
 	img {
 		min-width: 50vw;
 	}
+
+	main {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	main section {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	form button {
+		max-width: 30vw;
+	}
 }
