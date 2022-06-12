@@ -113,7 +113,7 @@ class ListManager
 
 		echo "<p><a href=\"/html/detail.php?id=" .
 			$photo->getId() .
-			"\">Ir</a></p>";
+			"\">Ver \"" . $photo->getName() . "\"</a></p>";
 
 		//Add script to add to LocationFilter, if filtering
 		//by place
@@ -162,52 +162,60 @@ $(document).ready(() => loc.filter());
 				>
 					<fieldset>
 						<legend>Datos</legend>
-						<p>Nombre: <label> 
-							<input type="text" name="name" 
-							value="<?php echo $manager->getName();  ?>"
-							>
-							</input>
-						</label></p>
-						<p>Autor: <label> 
-							<input type="text" name="author" 
-							value="<?php echo $manager->getAuthor(); ?>"
-							>
-							</input>
-						</label></p>
+						<p>
+						<label for="name">Nombre: </label> 
+						<input id="name" type="text" name="name" 
+						value="<?php echo $manager->getName();  ?>"
+						>
+						</input>
+						</p>
+						<p>
+						<label for="author">Autor: </label> 
+						<input id="author" type="text" name="author" 
+						value="<?php echo $manager->getAuthor(); ?>"
+						>
+						</input>
+						</p>
 					</fieldset>
 					<fieldset>
 						<legend>Lugar</legend>
-						<p>Region: <label>
-							<select name="region">
-	<?php $manager->printRegionOptions(); ?>
-							</select>
-						</label></p>
-						<p>Cercanos a tí <label>
-							<input type="checkbox" name="close"
-							<?php $manager->checkedClose(); ?>
-							></input>
-						</label></p>
+						<p>
+						<label for="region">Region: </label>
+						<select id="region" name="region">
+<?php $manager->printRegionOptions(); ?>
+						</select>
+						</p>
+						<p>
+						<label for="close">Cercanos a tí </label>
+						<input id="close" type="checkbox" name="close"
+						<?php $manager->checkedClose(); ?>
+						></input>
+						</p>
 					</fieldset>
 					<fieldset>
 						<legend>Orden</legend>
-						<p><label> 
-							<input 
-								type="radio" 
-								name="order" 
-								value="true"
-	<?php $manager->checkedAscending(); ?>
-							>Ascendiente</input>
-						</label></p>
-						<p><label> 
-							<input 
-								type="radio" 
-								name="order" 
-								value="false"
-	<?php $manager->checkedDescending(); ?>
-							>Descendiente</input>
-						</label></p>
+						<p>
+						<label for="order_asc">Ascendiente</label>
+						<input 
+							id="order_asc"
+							type="radio" 
+							name="order" 
+							value="true"
+<?php $manager->checkedAscending(); ?>
+						></input>
+						</p>
+						<p>
+						<label for="order_desc">Descendiente</label>
+						<input 
+							id="order_desc"
+							type="radio" 
+							name="order" 
+							value="false"
+<?php $manager->checkedDescending(); ?>
+						></input>
+						</p>
 					</fieldset>
-					<p><label> <button type=submit>Buscar</button></input></p>
+					<button type=submit>Buscar</button>
 				</form>
 			</section>
 			<section>
