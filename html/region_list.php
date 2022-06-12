@@ -43,7 +43,7 @@ class RegionMaker
 		if(!empty($subregions)) {
 			echo "<section>";
 
-			echo "<h3>Sub-regiones: </h3>";
+			echo "<p>Sub-regiones: </p>";
 			foreach($subregions as $subregion) 
 				$this->makeRegionSection($subregion);
 

@@ -114,12 +114,10 @@ section > section {
 
 	margin: .5em 2%;
 }
-h3 ~ section {
+h2 ~ section > p ~ section {
+	margin: 1vw;
 	padding: .2em 1em;
 	border: .1em dashed black;
-}
-h3 {
-	margin: .3em;
 }
 
 form {
