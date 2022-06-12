@@ -114,7 +114,7 @@ class PhotoDetailMaker
 
 		echo "<p>Posición exacta: " . $this->direction->getPosition() .
 			"</p>";
-		echo "<h3>Indicaciones de orientación:</h3>";
+		echo "<h4>Indicaciones de orientación:</h4>";
 		echo "<p>Cargando Orientación...</p>";
 
 		echo "</section>";
@@ -224,9 +224,9 @@ let page = new PageManager(
 			<section>
 				<h3>Fecha</h3>
 				<p>Cargando Periodo...</p>
-				<h3>Donde la imágen fué tomada:</h3>
+				<h4>Donde la imágen fué tomada:</h4>
 				<p><?php echo $maker->getDateString(); ?></p>
-				<h3>Conversión a hora local:</h3>
+				<h4>Conversión a hora local:</h4>
 					<p>Cargando Hora...</p>
 			</section>
 			<section>

@@ -41,13 +41,9 @@ class RegionMaker
 
 		$subregions = $this->db->region()->bySuperregion($region);
 		if(!empty($subregions)) {
-			echo "<section>";
-
 			echo "<p>Sub-regiones: </p>";
 			foreach($subregions as $subregion) 
 				$this->makeRegionSection($subregion);
-
-			echo "</section>";
 		}
 
 		echo "</section>";
