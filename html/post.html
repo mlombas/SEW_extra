@@ -30,6 +30,24 @@
 		</aside>
 		<main>
 			<h1>Compartir Fotografía</h1>
+			<p>Los campos con asterisco son obligatorios</p>
+			<section>
+				<h2>Subir documento XML</h2>
+				<form
+					method="POST"
+					enctype="multipart/form-data"
+					action="/html/add.php"
+				>
+					<label for="document">*Documento: </label>
+					<input id="document" type="file" accept=".xml"
+						name="document" required/>
+					<label for="image_xml">*Imagen: </label>
+					<input id="image_xml" type="file" accept=".jpg,.png"
+						name="image" required/>
+					<button type="submit">Enviar</button>
+					<button type="reset">Limpiar</button>
+				</form>
+			</section>
 			<section>
 				<h2>Introducir datos manualmente</h2>
 				<form
@@ -39,23 +57,24 @@
 				>
 					<fieldset>
 						<legend>Imagen</legend>
-						<label for="name">Nombre: </label>
+						<label for="name">*Nombre: </label>
 						<input id="name" type="text" name="name" required/>
-						<label for="image">Imagen: </label>
+						<label for="image">*Imagen: </label>
 						<input id="image" type="file" accept=".jpg,.png"
 							name="image" required/>
-						<label for="description">Descripción: </label>
+						<label for="description">*Descripción: </label>
 						<textarea id="description" name="description" required>
 						</textarea>
-						<label for="date">Fecha: </label>
+						<label for="date">*Fecha: </label>
 						<input id="date" type="date" name="date" required/>
 						<label for="license">Licencia: </label>
 						<input id="license" type="text" name="license"/>
 					</fieldset>
 					<fieldset>
 						<legend>Lugar</legend>
-						<label for="coords">Coordenadas: </label>
+						<label for="coords">*Coordenadas: </label>
 						<input id="coords" type="text" name="coords" required/>
+						<p>Formato de las coordenadas: latitud, longitud (por ejemplo: 30.44, -35.82)</p>
 						<label for="region">Región (Nombre o ID): </label>
 						<input id="region" type="text" name="region"/>
 						<p>
@@ -66,7 +85,7 @@
 					</fieldset>
 					<fieldset>
 						<legend>Autor</legend>
-						<label for="author_name">Nombre: </label>
+						<label for="author_name">*Nombre: </label>
 						<input id="author_name" type="text" name="author_name" 
 							required
 						/>
@@ -81,23 +100,6 @@
 							name="author_address"
 						/>
 					</fieldset>
-					<button type="submit">Enviar</button>
-					<button type="reset">Limpiar</button>
-				</form>
-			</section>
-			<section>
-				<h2>Subir documento XML</h2>
-				<form
-					method="POST"
-					enctype="multipart/form-data"
-					action="/html/add.php"
-				>
-					<label for="document">Documento: </label>
-					<input id="document" type="file" accept=".xml"
-						name="document" required/>
-					<label for="image_xml">Imagen: </label>
-					<input id="image_xml" type="file" accept=".jpg,.png"
-						name="image" required/>
 					<button type="submit">Enviar</button>
 					<button type="reset">Limpiar</button>
 				</form>

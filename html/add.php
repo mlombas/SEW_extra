@@ -85,8 +85,7 @@ class PhotoAdder
 		$photo = new Photo(
 			id: -1, name: $_POST["name"], link: $fupload["filename"],
 			description: $_POST["description"], time: $_POST["date"],
-			license: $_POST["license"], place_id: $place->getId(),
-			direction_id: $direction->getId()
+			license: $_POST["license"], place_id: $place->getId()
 		);
 		$photo = $this->db->photo()->insert($photo);
 
@@ -194,11 +193,14 @@ class PhotoAdder
 		$place = $this->db->place()->insert($place);
 
 		//Add direction...
-		$direction = new Direction(
-			id: -1, position: $image->posicion,
-			direction: $image->posicion->attributes()["direccion"]
-		);
-		$direction = $this->db->direction()->insert($direction);
+		$direction = null;
+		if($image->position) {
+			$direction = new Direction(
+				id: -1, position: $image->posicion,
+				direction: $image->posicion->attributes()["direccion"]
+			);
+			$direction = $this->db->direction()->insert($direction);
+		}
 
 		//If date is a timestamp, we must convert it
 		$date = null;
@@ -212,7 +214,7 @@ class PhotoAdder
 			id: -1, name: $image->nombre, link: $fupload["filename"],
 			description: $image->descripcion, time: $date,
 			license: $image->licencia, place_id: $place->getId(),
-			direction_id: $direction->getId()
+			direction_id: $direction ? $direction->getId() : null
 		);
 		$photo = $this->db->photo()->insert($photo);
 

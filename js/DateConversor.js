@@ -59,7 +59,7 @@ class DateConversor {
 		let total_difference = curr_difference - this.#result.difference;
 
 		let date = new Date(this.#date);
-		date.setHours(date.getHours() + total_difference);
+		date.setHours(date.getHours() + total_difference + 1);
 
 		return date;
 	}
