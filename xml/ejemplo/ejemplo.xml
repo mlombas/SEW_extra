@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE imagen SYSTEM "imagen.dtd">
+<imagen 
+	xsi:schemaLocation="imagen.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.uniovi.es"
+	>
+	<nombre>Glaciar</nombre>
+	<descripcion>
+		Glaciar en la antártida
+	</descripcion>
+	<lugar>
+		<coordenadas>-81.48459347598022, 158.01761511549236</coordenadas>
+		<region>
+			<nombre>Antártida</nombre>
+			<region>
+				<id>1</id>
+			</region>
+		</region>
+	</lugar>
+	<fecha>
+		<timestamp>1560981600</timestamp>
+	</fecha>
+	<autor>
+		<nombre>Juan Gutierrez</nombre>
+		<email>juang@gmail.com</email>
+		<telefono>667 10 10 10</telefono>
+	</autor>
+	<licencia>GNU</licencia>
+</imagen>
