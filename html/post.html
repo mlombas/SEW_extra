@@ -38,6 +38,15 @@
 					enctype="multipart/form-data"
 					action="/html/add.php"
 				>
+					<p>
+					Un documento XML contiene toda la información
+					de la imagen. Sin embargo, no contiene la imagen en sí,
+					solo sus metadatos.
+					</p>
+					<p>
+					Para subir una imagen usando xml, rellena el 
+					siguiente formulario.
+					</p>
 					<label for="document">*Documento: </label>
 					<input id="document" type="file" accept=".xml"
 						name="document" required/>
@@ -74,13 +83,15 @@
 						<legend>Lugar</legend>
 						<label for="coords">*Coordenadas: </label>
 						<input id="coords" type="text" name="coords" required/>
-						<p>Formato de las coordenadas: latitud, longitud (por ejemplo: 30.44, -35.82)</p>
+						<strong>Formato de las coordenadas: latitud, longitud (por ejemplo: 30.44, -35.82)</strong>
 						<label for="region">Región (Nombre o ID): </label>
 						<input id="region" type="text" name="region"/>
 						<p>
 						No sabes cuál es el ID de la región? puedes
-						consultarlo en la lista de regiones, en el
-						menú de navegación.
+						consultarlo en 
+						<a href="../html/region_list.php">
+							la lista de regiones
+						</a>.
 						</p>
 					</fieldset>
 					<fieldset>

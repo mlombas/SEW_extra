@@ -110,11 +110,12 @@ class PhotoDetailMaker
 
 		echo "<section>";
 
-		echo "<h3>Dirección de la cámara</h3>";
+		echo "<h3>Ver la imagen tal y como se sacó</h3>";
 
 		echo "<p>Posición exacta: " . $this->direction->getPosition() .
 			"</p>";
-		echo "<h4>Indicaciones de orientación:</h4>";
+		echo "<h4>Dirección exacta hacia la que apunta la cámara</h4>";
+		echo "<p>Sigue las indicaciones de la flecha de abajo</p>";
 		echo "<p>Cargando Orientación...</p>";
 
 		echo "</section>";
